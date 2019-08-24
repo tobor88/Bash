@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# readporg.sh is used to make the contents of /etc/passwd and /etc/group easy to interpret quickly
+# readid.sh is used to make the contents of /etc/passwd, /etc/group, and /etc/shadow easy to interpret quickly
 
 while [ -n "$1" ]; do
 	case "$1" in
@@ -22,7 +22,16 @@ while [ -n "$1" ]; do
 			print "===================================================================================================================" }
 			NR==1,NR==400{ printf "%-28s %5d %5d %-35s\n" , $1,$2,$3,$4 } ' /etc/group 
 			;;
-		-h) param="$3"
+		-s) param="$3"
+			# This option is used to read the contents of the /etc/shadow file and requires root permissions
+			awk -F":" '
+			BEGIN {
+			print "================================================================================================================================================="
+			printf "%-18s %-98s %-10s %-10s\n" , "USER", "PASSWORD_HASH", "LAST_CHANGED", "INACTIVE", "EXPIRY"
+			print "=================================================================================================================================================" }
+			NR==1,NR==400{ printf "%-18s %-98s %-10s %-10s\n" , $1,$2,$3,$7,$8 } ' /etc/shadow
+			;;
+		-h) param="$4"
 			# This option displays a help message and command execution examples
 			echo ""
 			echo "OsbornePro readid 1.0 ( https://roberthosborne.com )"
@@ -36,8 +45,9 @@ while [ -n "$1" ]; do
 		        echo "EXAMPLES:"
 			echo "  readid -u"
 			echo "  readid -g"
-			echo "  readid -u | more"
-			echo ""
+			echo "  sudo readid -s"
+			echo "  readid -h"
+			echo "  readid -u | more" 
 			;;
 	esac
 	shift
