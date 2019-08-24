@@ -11,8 +11,9 @@ else
         for i in {1..254}
         do
                 host=$(echo $1.$i)
-                fping -c1 -t300 $host 2>/dev/null 1>/dev/null
-
+                fping -c1 -t200 $host 2>/dev/null 1>/dev/null
+                # fping's -t option is in miliseconds and can be modified to take loner or shorter. My goal here is speed.
+                
                 if [ "$?" = 0 ]
                 then
                         echo $host " Host found"
