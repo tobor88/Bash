@@ -55,5 +55,22 @@ do
 					;;
 			esac
 		done
+		
+		# cp suid privesc method
+		if [ $ex | /bin/grep "cp" ]
+		then
+			/bin/ls -la --color=auto "$(which cp)"
+			/bin/chmod u+s "$(which cp)"
+		fi
+		
+		# find suid privesc method
+
+		# less suid privesc method
+
+		# nmap suid privesc method
+
+		# netcat suid privesc method
+
+		# vim suid privesc method
 	fi
 done
