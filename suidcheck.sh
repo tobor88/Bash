@@ -37,3 +37,25 @@ done
 /bin/echo "------------------------------------------------------------------"
 /usr/bin/find /etc/cron.d -type f -exec cat {} \; | /usr/bin/awk '$1 ~ /^[^;#]/' | /bin/sed G   
 /bin/echo "=================================================================="
+
+for ex in $exploit_cmds
+do
+	if [ echo $results | grep $ex ]
+	then
+		exploit_options=echo "Would you like to attempt privesc using $ex?  "
+		options=("Yes Attempt PrivEsc " "No I am Just Testing ")
+
+		select opt in "${options[@]}"
+		do
+			case $opt in
+				"Yes Attempt PrivEsc ")
+					echo "Attempting privesc using $ex SUID bit..."
+					;;
+				"No I am Just Testing ")
+					echo "you chose to not attempt $ex privesc."
+					break
+					;;
+			esac
+		done
+	fi
+done
