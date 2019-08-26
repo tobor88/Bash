@@ -88,7 +88,13 @@ do
 
 		
 		# nmap suid privesc method
-
+		if [ $ex | grep 'nmap' ]
+		then
+			echo "Enter bash commands in the nmap terminal by entering the below command once it is open."
+			echo "!sh"
+			sleep 5s
+			/usr/bin/nmap --interactive	
+		fi
 
 		# netcat suid privesc method
 
