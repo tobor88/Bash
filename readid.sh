@@ -2,6 +2,11 @@
 
 # readid.sh is used to make the contents of /etc/passwd, /etc/group, and /etc/shadow easy to interpret quickly
 
+if [ -z "$1" ]
+then
+	echo "Use the -h option to view commands help information"
+fi
+
 while [ -n "$1" ]; do
 	case "$1" in
 		-u) 
