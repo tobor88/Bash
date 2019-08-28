@@ -46,6 +46,7 @@ while [ -n "$1" ]; do
 			echo "OPTIONS:"
 			echo " -u : Reads the /etc/passwd file and places it into a neat table."
   			echo " -g : Reads the /etc/group file and places it into a neat table."
+			echo " -h : Displays commands help information for usage."
 			echo ""
 		        echo "EXAMPLES:"
 			echo "  readid -u"
