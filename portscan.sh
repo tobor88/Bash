@@ -2,7 +2,7 @@
 
 #Defining the variables
 
-if [ -z "$1" ]
+if [ "$1" == "" -o "$1" == "-h" -o "$1" == "--help" ]
 then
 	echo ""
 	echo "OsbornePro portscan 1.0 ( https://roberthosborne.com )"
@@ -22,15 +22,11 @@ then
 elif [ -z "$2" ]
 then
 	echo "No ports have been defined. All ports 1-65535 will be tested..."
-        function portscanner
-        {
-                for port in {1..65535}
-                do
-			(echo > /dev/tcp/$1/$port) 2> /dev/null && echo "$port is open"
-                done
-        } # End function portscan
-        portscanner
-
+        for port in {1..65535}
+        do
+		(echo > /dev/tcp/$1/$port) 2> /dev/null && echo "$port is open"
+        done
+        
 elif [ -z "$3" ]
 then
 	echo "Testing whether or not port $2 is open on $1"
@@ -43,4 +39,4 @@ then
 	do
 		(echo > /dev/tcp/$1/$port) 2> /dev/null && echo "$port is open"
 	done
-	fi
+fi
