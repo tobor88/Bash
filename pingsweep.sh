@@ -13,7 +13,7 @@ if [ -z "$1" ]; then
 	echo "Use -h switch to view help information"
 	echo ""
 else
-	if [ "$1" == '-h' ]; then
+	if [ "$1" == '-h' ] || [ "$1" == '--help' ] ; then
 		# This option displays a help message and command execution examples
 		echo ""
 		echo "OsbornePro pingsweep 1.0 ( https://roberthosborne.com )"
@@ -33,7 +33,7 @@ else
 		echo "  pingsweep 192.168.0 128 192"
 		echo "  # This example performs a ping sweep from 192.168.0.128 to 192.168.0.192"
 		echo ""
-
+		exit
 	# Variable validation------------------------------------------------
 	elif [[ "$1" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]] || ERROR="Valid IP subnet was not defined. For more help execute 'pingsweep -h' Example 172.16.32 "; then
 		
