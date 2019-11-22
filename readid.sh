@@ -4,12 +4,13 @@
 
 if [ -z "$1" ]
 then
-	echo "Use the -h option to view commands help information"
+	echo "Use -h switch to view help information"
+	echo ""
 fi
 
 while [ -n "$1" ]; do
 	case "$1" in
-		-u) 
+		-u)
 			# This option is used to read the contents of /etc/passwd and place its output into an easy to read format
 			awk -F":" '
 			BEGIN {
@@ -25,7 +26,7 @@ while [ -n "$1" ]; do
 			print "==================================================================================================================="
 			printf "%-28s %-5s %-5s %-35s\n" , "GROUP_NAME", "   PWD", "  GID", " MEMBERS"
 			print "===================================================================================================================" }
-			NR==1,NR==400{ printf "%-28s %5d %5d %-35s\n" , $1,$2,$3,$4 } ' /etc/group 
+			NR==1,NR==400{ printf "%-28s %5d %5d %-35s\n" , $1,$2,$3,$4 } ' /etc/group
 			;;
 		-s) param="$3"
 			# This option is used to read the contents of the /etc/shadow file and requires root permissions
@@ -46,14 +47,15 @@ while [ -n "$1" ]; do
 			echo "OPTIONS:"
 			echo " -u : Reads the /etc/passwd file and places it into a neat table."
   			echo " -g : Reads the /etc/group file and places it into a neat table."
-			echo " -h : Displays commands help information for usage."
+			echo " -h : Displays the help information for the command."
 			echo ""
 		        echo "EXAMPLES:"
 			echo "  readid -u"
 			echo "  readid -g"
 			echo "  sudo readid -s"
 			echo "  readid -h"
-			echo "  readid -u | more" 
+			echo "  readid -u | more"
+			echo ""
 			;;
 	esac
 	shift
