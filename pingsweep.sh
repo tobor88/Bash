@@ -55,6 +55,7 @@ else
 				START=$2
 			else
 				echo $ERROR
+				echo ""
 				exit
 			fi
 		fi
@@ -67,6 +68,7 @@ else
 				END=$3
 			else
 				echo $ERROR
+				echo ""
 				exit
 			fi
 		fi
