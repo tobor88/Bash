@@ -13,19 +13,23 @@ else
 		echo ""
 		echo "OsbornePro pingsweep 1.0 ( https://roberthosborne.com )"
 		echo ""
-		echo "USAGE: pingsweep [network] "
+		echo "USAGE: pingsweep [network] [starting ip] [ending ip]"
+		echo "USAGE: pingsweep [network]"
 		echo ""
 		echo "OPTIONS:"
 		echo "  -h : Displays the help information for the command."
 		echo ""
 		echo "EXAMPLES:"
 		echo "  pingsweep 192.168.0"
-		echo "  # This example performs a ping sweep from 192.168.0.1 to 254"
+		echo "  # This example performs a ping sweep from 192.168.0.1 to 192.168.0.254"
 		echo ""
 		echo "  pingsweep 192.168.0 128 192"
-		echo "  # This example performs a ping sweep from 192.168.0.128 to 192"
+		echo "  # This example performs a ping sweep from 192.168.0.128 to 192.168.0.192"
 		echo ""
-
+		
+	elif [[ "$1" !=~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
+		echo "A valid IPv4 subnet was not defined. Example: 172.16.32"
+	
 	elif [[ "$1" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
 
 			if [ -n "$1" ] && [ -n "$2" ] && [ -z "$3" ]; then
