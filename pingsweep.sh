@@ -44,6 +44,7 @@ else
 			fi
 		else
 			echo $ERROR
+			echo ""
 			exit
 		fi
 
