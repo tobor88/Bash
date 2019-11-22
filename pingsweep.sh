@@ -26,7 +26,7 @@ else
 		echo "  # This example performs a ping sweep from 192.168.0.128 to 192"
 		echo ""
 
-	elif [ -n "$1" ]; then
+	elif [[ "$1" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
 
 			if [ -n "$1" ] && [ -n "$2" ] && [ -z "$3" ]; then
 				echo "You are required to define a START and END IP Address range. Leave blank to sweep /24 subnet"
