@@ -3,6 +3,7 @@
 # IMPORTANT: For this script to work you will need fping installed. On Debian based Linux distros it can be installed using the command below
 # sudo apt-get -y install fping
 
+# Allow Ctrl+C to kill pingsweep
 trap '
   trap - INT # restore default INT handler
   kill -s INT "$$"
