@@ -1,7 +1,12 @@
 #!/bin/bash
 
-# IMPORTANT: For this script to work you will need fping installed. On Debian based Linux distros it can be installed using the command below
+# This command is most efficient on Linux distros that have fping installed. If fping is not installed it will fail over to using ping instead. 
+
+# On Debian based Linux distros fping can be installed using the command below
 # sudo apt-get -y install fping
+
+# On CentOS or Red Hat distros it can be installed using
+# yum install -y fping
 
 # Allow Ctrl+C to kill pingsweep
 trap '
@@ -17,6 +22,8 @@ else
 		# This option displays a help message and command execution examples
 		echo ""
 		echo "OsbornePro pingsweep 1.0 ( https://roberthosborne.com )"
+		echo ""
+		echo "NOTE: This command is most efficient on Linux distros that have fping installed"
 		echo ""
 		echo "USAGE: pingsweep [network <string format is #.#.#>] [int <start address>] [int <end address>]"
 		echo ""
@@ -83,7 +90,7 @@ else
 		
 		for i in $(seq $START $END 2> /dev/null); do
 			HOST=$(echo $1.$i)
-				fping -c1 -t300 $HOST 2> /dev/null 1> /dev/null
+				fping -c1 -t300 $HOST 2> /dev/null 1> /dev/null || ping -s 16 -c 1 -i 1 -U -W 1 -4 $HOST 2> /dev/null
 				# fping's -t option is in miliseconds and can be modified to take loner or shorter. My goal here is speed.
 				if [ "$?" = 0 ]
 				then
