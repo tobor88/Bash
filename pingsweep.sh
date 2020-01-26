@@ -88,14 +88,25 @@ else
 		echo "Active Hosts"
 		echo "------------"
 		
-		for i in $(seq $START $END 2> /dev/null); do
-			HOST=$(echo $1.$i)
-				fping -c1 -t300 $HOST 2> /dev/null 1> /dev/null || ping -s 16 -c 1 -i 1 -U -W 1 -4 $HOST 2> /dev/null
+		pingcmd=$(which fping)
+		
+		if [ -z $pingcmd ]; then
+			for i in $(seq $START $END 2> /dev/null); do
+				HOST=$(echo $1.$i)
+					ping -s 16 -c 1 -i 1 -U -W 1 -4 $HOST 2> /dev/null
+					if [ "$?" = 0 ]; then
+						echo $HOST
+					fi
+				done
+		else
+			for i in $(seq $START $END 2> /dev/null); do
+				HOST=$(echo $1.$i)
+				fping -c1 -t300 $HOST 2> /dev/null 1> /dev/null
 				# fping's -t option is in miliseconds and can be modified to take loner or shorter. My goal here is speed.
-				if [ "$?" = 0 ]
-				then
+				if [ "$?" = 0 ]; then
 					echo $HOST
 				fi
 			done
+		fi
 	fi
 fi
