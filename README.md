@@ -4,6 +4,6 @@ Collection of bash scripts I wrote to make my life easier or test myself that yo
 #### BASH COMMANDS
 - __readid.sh__ This is complete. (Disaplys the /etc/passwd, /etc/shadow, or /etc/group files into an easy to read format)
 - __getip.sh__ I view this as done. (Restrieves and displays the public and private IP addresses on a computer)
-- __pingsweep.sh__  Ithink it is pretty much done. It of course works (Uses fping to send an icmp request to all devices in the defined /24 subnet and returns all the IP addresses of the active pingable hosts)
+- __pingsweep.sh__ This works best when fping is installed on your Linux distro. If fping is not installed it will failover to using the ping command instead. The timeout for ping is set to 1 second so if you are using this with proxychains you may need to mess around with this setting.
 - __suidcheck.sh__ Needs a lot of work (Checks for exploitable suid bits and attempts to exploit them if they exist. Also returns cron job scripts)
 - __portscan.sh__ Works but still needs more input validation and error handling. (Custom port scanner. Check all ports, one port, or a custom range of ports.)
