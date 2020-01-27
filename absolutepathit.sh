@@ -52,8 +52,6 @@ elif [ -f "$1" ] && echo "$1 file exists. Please wait..." || echo "$1 file does 
 	# Replace the arelative value commands in a script with absolute values
 	for each_command in ${ABSOLUTE_CMDS[@]}; do
 			assumed_path=${each_command##*/}
-			echo $assumed_path
-			echo $each_command
 			sed -i "s|$assumed_path|$each_command|g" /tmp/absolutepathit_tmpinfo
 		done	
 fi
