@@ -26,5 +26,7 @@ Collection of bash scripts I wrote to make my life easier or test myself that yo
  
  ![absolutepathit.sh results](https://raw.githubusercontent.com/tobor88/Bash/master/absolutepathit_img.png) 
 
+- __enablespoofing.sh__ This is a simple script meant to take care of the tasks neccessary to allow dns spoofing on Kali Linux. It enables port forwarding on ipv4 and allows DNS traffic.
+
 
 - __suidcheck.sh__ Needs a lot of work (Checks for exploitable suid bits and attempts to exploit them if they exist. Also returns cron job scripts)
