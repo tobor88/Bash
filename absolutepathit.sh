@@ -35,6 +35,10 @@ elif [ -f "$1" ] && echo "$1 file exists. Please wait..." || echo "$1 file does 
 	mapfile -t COMMAND_LIST < /tmp/absolutepathit_tmpinfo
 
 	UNIQUE_CMDS=$(echo ${COMMAND_LIST[@]} | tr ' ' '\n' | sort -u | tr '\n' ' ')
+
+	# Comment out the below line that sets the word variable if you feel this is overdoing it. This is still a work in progress
+        word=$(echo $word | rev | cut -f1 -d '(' | rev)
+
 	for word in $UNIQUE_CMDS; do
 		if [[ $word =~ $regex ]]; then
 			if [ -n $word ]; then
