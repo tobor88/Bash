@@ -22,7 +22,9 @@ Collection of bash scripts I wrote to make my life easier or test myself that yo
 ![portscan.sh results](https://raw.githubusercontent.com/tobor88/Bash/master/portscan_img.png)
 
 
-- __absolutepathit.sh__ This command is used to convert all relative commands in a script to absolute path commands. To play this one safe I have it create a copy of the script you wrote and places it in a file called /tmp/absolutepathit_tmpinfo. This file has all comments removed from it and replaces any commands that have a $(which <cmd>) result value with that absolute path value. Copy and paste the results into your script to ensure you dont lost your comments and to ensure any possible command words you have in echo quotations are what you want. This is not perfect yet as you can see in the image below it misses curl. It does not misinterpret _print_ in the __awk__ command. Any contributions are welcome. This is still a work in progress.
+- __absolutepathit.sh__ This command is used to convert all relative commands in a script to absolute path commands. To play this one safe I have it create a copy of the script you wrote and places it in a file called /tmp/absolutepathit_tmpinfo. This file has all comments removed from it and replaces any commands that have a result value obtained from the command $(which <cmd>) with the absolute path value result for that command. 
+ Copy and paste the results into your script to ensure you dont lost your comments and to ensure any possible command words you have in echo quotations are what you want. 
+ This is not perfect yet as you can see in the image below it misses curl. To deal with that issue I added line 40 which will obtain commands that are located next to a ( character. This does not misinterpret _print_ in the __awk__ command. The issue I noticed came from websites in a bash script. This is because the slash is viewed as an escape character. Any contributions are welcome. This is still a work in progress.
  
  ![absolutepathit.sh results](https://raw.githubusercontent.com/tobor88/Bash/master/absolutepathit_img.png) 
 
