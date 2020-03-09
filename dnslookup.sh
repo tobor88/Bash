@@ -18,7 +18,7 @@ else
                 /usr/bin/echo ""
                 /usr/bin/echo "OsbornePro dnslookup 1.0 ( https://roberthosborne.com )"
                 /usr/bin/echo ""
-                /usr/bin/echo "USAGE: dnslookup [network <string format is 
+                /usr/bin/echo "USAGE: dnslookup [network <string format is #.#.#>] [int <start address>] [int <end address>]
                 /usr/bin/echo ""
                 /usr/bin/echo "OPTIONS:"
                 /usr/bin/echo "  -h : Displays the help information for the command."
@@ -26,13 +26,13 @@ else
                 /usr/bin/echo ""
                 /usr/bin/echo "EXAMPLES:"
                 /usr/bin/echo "  dnslookup 192.168.0"
-                /usr/bin/echo "  
+		/usr/bin/echo "  This example performs a dns host lookup from 192.168.0.1 to 192.168.0.254"
                 /usr/bin/echo ""
                 /usr/bin/echo "  dnslookup 192.168.0 200"
-                /usr/bin/echo "  
+                /usr/bin/echo "  This example performs a dns host lookup from 192.168.0.200 to 192.168.0.254"
                 /usr/bin/echo ""
                 /usr/bin/echo "  dnslookup 192.168.0 128 192"
-                /usr/bin/echo "  
+                /usr/bin/echo "  This example performs a dns host lookup from 192.168.0.128 to 192.168.0.192"
                 /usr/bin/echo ""
                 exit
 
