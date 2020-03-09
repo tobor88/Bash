@@ -18,7 +18,7 @@ else
                 /usr/bin/echo ""
                 /usr/bin/echo "OsbornePro dnslookup 1.0 ( https://roberthosborne.com )"
                 /usr/bin/echo ""
-                /usr/bin/echo "USAGE: dnslookup [network <string format is #.#.#>] [int <start address>] [int <end address>]
+                /usr/bin/echo "USAGE: dnslookup [network <string format is #.#.#>] [int <start address>] [int <end address>]"
                 /usr/bin/echo ""
                 /usr/bin/echo "OPTIONS:"
                 /usr/bin/echo "  -h : Displays the help information for the command."
