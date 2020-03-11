@@ -8,7 +8,7 @@ git clone https://github.com/tobor88/Bash
 cd Bash
 sudo chmod u+x *.sh
 $files=$(ls | grep ".sh")
-for f in $files; do cp "$f" /usr/local/bin/"${f/%.sh/}"; done
+for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
 ```
 
 #### BASH COMMANDS
