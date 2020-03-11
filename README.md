@@ -1,6 +1,16 @@
 # Bash
 Collection of bash scripts I wrote to make my life easier or test myself that you may find useful. The help switch defined for these scripts is written with the assumption these exist in a PATH environmnet variable. Typically commands such as these should be placed in /usr/local/bin. This is considered best practice for Linux.Most of these tools will be useful to Red Teamers
 
+## ADD COMMANDS TO /usr/local/bin
+Enter the below commands to download this repo, make the .sh files executable and place the .sh executable files into your /usr/local/bin so you can use for example "getip" instead of ./getip.sh to execute the commands.
+```sh
+git clone https://github.com/tobor88/Bash
+cd Bash
+sudo chmod u+x *.sh
+$files=$(ls | grep ".sh")
+for f in $files; do cp "$f" /usr/local/bin/"${f/%.sh/}"; done
+```
+
 #### BASH COMMANDS
 - __readid.sh__ This is complete. (Disaplys the /etc/passwd, /etc/shadow, or /etc/group files into an easy to read format)
 
