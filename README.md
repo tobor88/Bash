@@ -27,9 +27,14 @@ for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
 ![pingsweep.sh results](https://raw.githubusercontent.com/tobor88/Bash/master/pingsweep_img.png)
 
 
-- __portscan.sh__ Works but still needs more input validation and error handling. (Custom port scanner. Check all ports, one port, or a custom range of ports.)
+- __portscan.sh__ In the future I will add more input validation and error handling. (Custom port scanner. Check all ports, one port, or a custom range of ports.)
 
 ![portscan.sh results](https://raw.githubusercontent.com/tobor88/Bash/master/portscan_img.png)
+
+
+- __massnmp.sh__ Script I built to quickly obtain SNMP information from a defined subnet range. This was written for Kali so it uses OneSixtyOne and SNMP-Check. If these are not already installed they will need to be for the script to work. This script will build 3 files in your /tmp directory which means on next restart they will be deleted. Enumerated SNMP info on different targets will be placed into a txt file in the $PWD the script was executed from.
+
+![massnmp.sh results](https://raw.githubusercontent.com/tobor88/Bash/master/massnmp.png)
 
 
 - __absolutepathit.sh__ This command is used to convert all relative commands in a script to absolute path commands. To play this one safe I have it create a copy of the script you wrote and places it in a file called /tmp/absolutepathit_tmpinfo. This file has all comments removed from it and replaces any commands that have a result value obtained from the command $(which <cmd>) with the absolute path value result for that command. 
