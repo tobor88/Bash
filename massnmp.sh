@@ -85,7 +85,7 @@ else
 		# Create community list
 		if [ ! -f /tmp/community.list ]; then
 			/usr/bin/printf "[i] I would suggest using FuzzDB's wordlist-common-snmp-community-strings.txt for the best results.\n"
-			/usr/bin/printf "[i] To do this copy that wordlist to the current directory and rename it too community.list\n\n"
+			/usr/bin/printf "[i] To do this copy that wordlist to the /tmp directory and rename it too community.list\n\n"
 			/usr/bin/echo $'private\npublic\nmanager' >> /tmp/community.list
 		else
 			/usr/bin/printf "[*] Wordlist $PWD/community.list has been found to already exist\n"
