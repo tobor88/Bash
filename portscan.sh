@@ -37,7 +37,7 @@ elif [[ "$1" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]] && echo "Sca
         	for port in {1..65535}
         	do
 			# (echo > /dev/tcp/$1/$port) 2> /dev/null && echo "$port is open"
-			true &>/dev/null </dev/tcp/$1/$port && echo $2
+			true &>/dev/null </dev/tcp/$1/$port && echo $port
 		done
 		exit
 
