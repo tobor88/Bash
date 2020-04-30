@@ -70,4 +70,6 @@ dns1.osbornepro.com.
 dns2.osbornepro.com.
 ```
 
+- __rcp-suid-privesc.sh__ This can be used to exploit the SUID bit on rcp. This only works on certain Operating Systems. Successfully tested on Red Hat 6.2. THere is a perl version of this script on exploitdb.
+
 - __suidcheck.sh__ Needs a lot of work (Checks for exploitable suid bits and attempts to exploit them if they exist. Also returns cron job scripts)
