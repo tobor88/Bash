@@ -69,6 +69,11 @@ for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
 dns1.osbornepro.com.
 dns2.osbornepro.com.
 ```
+- __CVE-2006-3392.sh__ This exploit is used to perform an unauthenticated remote file disclosure on Webmin version <1.29x.
+```bash
+./CVE-2006-3392.sh 10.11.1.141 10000 http /etc/shadow
+```
+![CVE-2006-3392](https://raw.githubusercontent.com/tobor88/Bash/master/cve-2006-3392.png)
 
 - __rcp-suid-privesc.sh__ This can be used to exploit the SUID bit on rcp. This only works on certain Operating Systems. Successfully tested on Red Hat 6.2. THere is a perl version of this script on exploitdb.
 
