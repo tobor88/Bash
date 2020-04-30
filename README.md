@@ -73,7 +73,7 @@ dns2.osbornepro.com.
 ```bash
 ./CVE-2006-3392.sh 10.11.1.141 10000 http /etc/shadow
 ```
-![CVE-2006-3392](https://raw.githubusercontent.com/tobor88/Bash/master/cve-2006-3392.png)
+![CVE-2006-3392](https://raw.githubusercontent.com/tobor88/Bash/master/cve20063392.png)
 
 - __rcp-suid-privesc.sh__ This can be used to exploit the SUID bit on rcp. This only works on certain Operating Systems. Successfully tested on Red Hat 6.2. THere is a perl version of this script on exploitdb.
 
