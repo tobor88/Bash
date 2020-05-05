@@ -41,6 +41,10 @@ python3 -m pip install capstone
 python3 -m pip install unicorn
 python3 -m pip install ropper
 
+wget https://raw.githubusercontent.com/hugsy/stuff/master/update-trinity.sh
+chmod +x update-trinity.sh
+./update-trinity.sh
+
 gem install winrm
 gem install winrm-s
 gem install winrm-fs
