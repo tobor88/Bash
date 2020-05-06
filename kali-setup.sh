@@ -257,7 +257,7 @@ mkdir -p /var/ftp/public
 sudo chown nobody:nogroup /var/ftp/public
 sudo useraddd ftpsecure
 cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
-echo " VSFTP SERVER ANONYMOUS DOWNLAODS" > /etc/vsftpd.conf
+echo '# VSFTP SERVER ANONYMOUS DOWNLAODS' > /etc/vsftpd.conf
 echo "listen=YES" >> /etc/vsftpd
 echo "listen_ipv6=NO" >> /etc/vsftpd.conf
 echo "anonymous_enable=YES" >> /etc/vsftpd.conf
@@ -294,7 +294,8 @@ echo "pam_service_name=vsftpd" >> /etc/vsftpd.conf
 echo "ls_recurse_enable=NO" >> /etc/vsftpd.conf
 echo "utf8_filesystem=YES" >> /etc/vsftpd.conf
 echo "one_process_model=YES" >> /etc/vsftpd.conf
-echo "ssl_enable=NO" >> /etc/vsftpd.confrsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem" >> /etc/vsftpd.conf
+echo "ssl_enable=NO" >> /etc/vsftpd.conf
+echo "rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem" >> /etc/vsftpd.conf
 echo "rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key" >> /etc/vsftpd.conf
 
 # BASH PROFILES
