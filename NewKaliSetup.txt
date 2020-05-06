@@ -1,3 +1,5 @@
+# I do my best to keep this updated with tools I use so rebuilding a Kali ISO doesn't take all day
+
 echo "Setup Burpsuite stuff"
 
 gzip -d /usr/share/wordlists/rockyou.txt.gz
