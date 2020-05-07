@@ -35,6 +35,7 @@ pip install virtualenv
 pip install cme
 pip install bloodhound
 pip3 install virtualenv
+python3 -m pip install web3
 # GEF BUILD FOR GDB
 python3 -m pip install pwntools
 python3 -m pip install keystone-engine
