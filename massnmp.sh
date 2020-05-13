@@ -111,7 +111,7 @@ else
 			IP=($(/usr/bin/cat /tmp/snmp_hosts.txt | /usr/bin/awk {'print $1'}))
 			COMMUNITY=($(/usr/bin/cat /tmp/snmp_hosts.txt | /usr/bin/awk {'print $2'} | /usr/bin/tr -d '[]'))
 
-			/usr/bin/snmp-check -c $COMMUNITY -p 161 -v1 $IP > "$IP.txt" 2>&1 || /usr/bin/snmp-check -c $COMMUNITY -p 161 -v2c $IP > "$IP.txt" 2>&1
+			/usr/bin/snmp-check -c $COMMUNITY -p 161 -v1 $IP > "$i.txt" 2>&1 || /usr/bin/snmp-check -c $COMMUNITY -p 161 -v2c $IP > "$i.txt" 2>&1
 		done
 		/usr/bin/printf "[*] Text files created for each ip address contain enumerated SNMPv1 or 2c information.\n"
 	fi
