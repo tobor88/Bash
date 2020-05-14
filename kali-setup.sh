@@ -129,7 +129,7 @@ tar xzvf OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz -C /usr/share/
 cd /opt
 git clone https://github.com/tmux-plugins/tmux-logging.git
 echo "##################################” >> /root/.tmux.conf
-echo "# TMUX CUSTOM CONFIGURATION FILE #” >> /root/.tmux.conf
+echo "  TMUX CUSTOM CONFIGURATION FILE ” >> /root/.tmux.conf
 echo "##################################” >> /root/.tmux.conf
 echo "" >> /root/.tmux.conf
 echo "# Quality of life stuff" >> /root/.tmux.conf
