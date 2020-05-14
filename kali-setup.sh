@@ -8,11 +8,12 @@ msfdb init
 sudo systemctl enable postgresql
 
 # PIP INSTALLS 
-sudo apt-get install python-setuptools
-sudo apt-get install python3-setuptools
-sudo apt-get install python-dev
+sudo apt install cmake -y
+sudo apt install python-setuptools -y
+sudo apt install python3-setuptools -y
+sudo apt install python-dev -y
 python -m easy_install pip
-sudo apt install python3-pip
+sudo apt install python3-pip -y
 pip install wheel
 pip install keystone-engine
 pip install capstone
@@ -62,8 +63,6 @@ sudo apt install stoken -y
 sudo apt install recon-ng -y
 sudo apt install checksec -y
 sudo apt install reaver -y
-sudo apt install pyrit
-sudo apt install coWPAtty -y
 sudo apt install guake -y
 sudo apt install wifite -y
 sudo apt install kismet -y
@@ -73,7 +72,7 @@ sudo apt install jxplorer -y
 sudo apt install smbmap -y
 sudo apt install armitage -y
 sudo apt install wfuzz -y
-sudo apt install apt install nfs-kernel-server -y
+sudo apt install nfs-kernel-server -y
 sudo apt install sqlmap -y
 sudo apt install putty-tools -y
 sudo apt install httptunnel -y
@@ -82,7 +81,6 @@ sudo apt install gdbserver -y
 sudo apt install qemu-utils -y
 sudo apt install libcurl4-openssl-dev
 sudo apt install steghide -y
-sudo apt install bkhive -y
 sudo apt install evil-ssdp
 sudo apt install dnschef -y
 sudo apt install smtp-user-enum -y 
@@ -107,7 +105,6 @@ sudo apt install bloodhound -y
 sudo apt install wfuzz -y
 sudo apt install seclists -y
 sudo apt install ident-user-enum -y
-sudo apt install cmake -y
 sudo apt install cargo -y
 sudo apt install npm -y
 sudo apt install npm --fix-broken -y
