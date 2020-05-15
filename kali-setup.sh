@@ -27,6 +27,11 @@ pip install unicorn
 pip install ropper
 pip install Crypto
 pip install impacket
+pip install iptools
+pip install agents
+pip install M2Crypto
+pip install netifaces
+pip install pydispatch
 pip install samba
 pip install pwn
 pip install pwntools
