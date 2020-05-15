@@ -137,8 +137,8 @@ echo "set -g history-limit 50000" >> /root/.tmux.conf
 echo "set -g allow-rename off" >> /root/.tmux.conf
 echo "" >> /root/.tmux.conf
 echo ‘## Join Windows’ >> /root/.tmux.conf
-echo "bind-key j command-prompt -p "join pane from:" "join-pane -s '%%'"" >> /root/.tmux.conf
-echo "bind-key s command-prompt -p "join pane to:" "join-pane -t '%%'"" >> /root/.tmux.conf
+echo ‘bind-key j command-prompt -p "join pane from:" "join-pane -s '%%'"’ >> /root/.tmux.conf
+echo ‘bind-key s command-prompt -p "join pane to:" "join-pane -t '%%'"’ >> /root/.tmux.conf
 echo "" >> /root/.tmux.conf
 echo ‘# Search Mode VI (default is emac)’ >> /root/.tmux.conf
 echo "set-window-option -g mode-keys vi" >> /root/.tmux.conf
