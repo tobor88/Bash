@@ -239,7 +239,7 @@ cp /usr/share/windows-resources/Lovely-Potato/* /var/www/html/
 # WORDLISTS
 echo "Building all inclusive wordlist for URL fuzzing"
 cp /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt /usr/share/seclists/Discovery/Web-Content/
-cut -d' ' -f2 *.txt | sort -u  > all-inclusive.txt
+ls /usr/share/seclists/Discovery/Web-Content/*.txt | cut -d' ' -f2 |  sort -u  > all-inclusive.txt
 
 # DEBUGGERS
 wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
