@@ -304,6 +304,8 @@ sudo mkdir /root/HTB
 sudo mkdir /root/HTB/Boxes
 sudo mkdir /root/HTB/Challenges
 sudo mkdir /root/HTB/Labs
+sudo systemctl stop nfs-server.service
+sudo systemctl disable nfs-server.service
 cd /root
 git clone https://github.com/tobor88/Bash
 cd Bash
