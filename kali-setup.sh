@@ -87,6 +87,7 @@ sudo apt install libcurl4-openssl-dev
 sudo apt install steghide -y
 sudo apt install evil-ssdp
 sudo apt install dnschef -y
+sudo apt install mingw-w64 -y
 sudo apt install smtp-user-enum -y 
 sudo apt install samdump2 -y
 sudo apt install lftp -y
