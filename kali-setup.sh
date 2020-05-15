@@ -1,6 +1,6 @@
 # I do my best to keep this updated with tools I use so rebuilding a Kali ISO doesn't take all day
-
-echo "Setup Burpsuite stuff"
+# Script runtime is about 20 minutes. If you have ideas to make this even faster feel free to contribute 
+echo "Setup Burpsuite CA Certificate and set 'Enable Interception at Startup' to 'Always Disable'"
 
 # SERVICES
 gzip -d /usr/share/wordlists/rockyou.txt.gz
@@ -14,6 +14,7 @@ sudo apt install python3-setuptools -y
 sudo apt install python-dev -y
 python -m easy_install pip
 sudo apt install python3-pip -y
+sudo apt install seclists -y &
 pip install wheel
 pip install keystone-engine
 pip install capstone
@@ -103,7 +104,6 @@ sudo apt install docker-compose -y
 sudo apt install neo4j -y
 sudo apt install bloodhound -y
 sudo apt install wfuzz -y
-sudo apt install seclists -y
 sudo apt install ident-user-enum -y
 sudo apt install cargo -y
 sudo apt install npm -y
@@ -120,10 +120,8 @@ sudo git clone https://github.com/EmpireProject/Empire.git
 sudo /opt/Empire/setup/install.sh
 
 # GHIDRA
-wget https://ghidra-sre.org/ghidra_9.1.2_PUBLIC_20200212.zip
-unzip /opt/ghidra_9.1.2_PUBLIC_20200212.zip
-wget https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
-tar xzvf OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz -C /usr/share/
+(wget https://ghidra-sre.org/ghidra_9.1.2_PUBLIC_20200212.zip && unzip /opt/ghidra_9.1.2_PUBLIC_20200212.zip) &
+(wget https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz && tar xzvf OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz -C /usr/share/) &
 
 # TMUX 
 cd /opt
@@ -137,8 +135,8 @@ echo "set -g history-limit 50000" >> /root/.tmux.conf
 echo "set -g allow-rename off" >> /root/.tmux.conf
 echo "" >> /root/.tmux.conf
 echo ‘## Join Windows’ >> /root/.tmux.conf
-echo ‘bind-key j command-prompt -p "join pane from:" "join-pane -s '%%'"’ >> /root/.tmux.conf
-echo ‘bind-key s command-prompt -p "join pane to:" "join-pane -t '%%'"’ >> /root/.tmux.conf
+echo -en "bind-key j command-prompt -p \"join pane from:\" \"join-pane -s \'%%\'\"\n" >> /root/.tmux.conf
+echo -en "bind-key s command-prompt -p \"join pane to:\" \"join-pane -t '%%'\"" >> /root/.tmux.conf
 echo "" >> /root/.tmux.conf
 echo ‘# Search Mode VI (default is emac)’ >> /root/.tmux.conf
 echo "set-window-option -g mode-keys vi" >> /root/.tmux.conf
@@ -146,10 +144,10 @@ echo ‘# git clone https://github.com/tmux-plugins/tmux-logging.git’ >> /root
 echo "run-shell /opt/tmux-logging/logging.tmux" >> /root/.tmux.conf
 echo "" >> /root/.tmux.conf
 echo ‘# Plugins’ >> /root/.tmux.conf
-echo "set -g @plugin 'tmux-plugins/tmux-logging'" >> /root/.tmux.conf
+echo -en "set -g @plugin 'tmux-plugins/tmux-logging'" >> /root/.tmux.conf
 echo "" >> /root/.tmux.conf
 echo ‘# Uses the default terminal color scheme for text’ >> /root/.tmux.conf
-echo "set -g default-terminal "screen-256color"" >> /root/.tmux.conf
+echo -en "set -g default-terminal \"screen-256color\"" >> /root/.tmux.conf
 echo "" >> /root/.tmux.conf
 echo "run-shell /opt/tmux-logging/logging.tmux' >> /root/.tmux.conf" >> /root/.tmux.conf
 
@@ -165,7 +163,7 @@ sudo ./setup.py install
 # /USR/SHARE
 cd /usr/share 
 sudo git clone https://github.com/int0x33/nc.exe.git
-sudo git clone https://github.com/tennc/fuzzdb.git
+sudo git clone https://github.com/tennc/fuzzdb.git &
 sudo git clone https://boringssl.googlesource.com/boringssl
 sudo git clone --recursive https://github.com/cloudflare/quiche
 cd quiche
@@ -317,5 +315,6 @@ files=$(ls | grep ".sh")
 for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
 sudo ssh-keygen -b 4096 -t rsa -f /root/.ssh
 su -c "ssh-keygen -b 4096 -t rsa -f /home/kali/.ssh" kali
+echo 'Running ghidra for the first time. Enter the following location for the JDK install: /usr/share/jdk-11.0.7+10'
 
 sudo updatedb
