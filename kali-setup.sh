@@ -1,5 +1,8 @@
 # I do my best to keep this updated with tools I use so rebuilding a Kali ISO doesn't take all day
 # Script runtime is about 20 minutes. If you have ideas to make this even faster feel free to contribute 
+#
+# Last Tested on Kali 2020.2 on May 14 2020
+
 echo "Setup Burpsuite CA Certificate and set 'Enable Interception at Startup' to 'Always Disable'"
 
 # SERVICES
