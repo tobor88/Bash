@@ -16,6 +16,7 @@ sudo apt install python-setuptools -y
 sudo apt install python3-setuptools -y
 sudo apt install python-dev -y
 sudo apt install python3-pip -y
+sudo apt install python-pip -y
 sudo apt install seclists -y
 python -m easy_install pip
 pip install wheel
