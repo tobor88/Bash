@@ -213,7 +213,7 @@ git clone https://github.com/mzet-/linux-exploit-suggester.git
 git clone https://github.com/rebootuser/LinEnum.git
 git clone https://github.com/DominicBreuker/pspy.git
 git clone https://github.com/jondonas/linux-exploit-suggester-2.git
-git clone git clone  https://github.com/saghul/lxd-alpine-builder.git
+git clone https://github.com/saghul/lxd-alpine-builder.git
 /usr/share/linux-resources/lxd-alpine-builder/build-alpine
 cp /usr/share/linux-resources/lxd-apline/builder/alpine-v*.tar.gz /var/www/html/
 git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite.git
