@@ -244,7 +244,7 @@ mkdir -p /var/ftp/public
 sudo chown nobody:nogroup /var/ftp/public
 sudo useraddd ftpsecure
 cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
-echo '# VSFTP SERVER ANONYMOUS DOWNLAODS' > /etc/vsftpd.conf
+echo '# VSFTP SERVER ANONYMOUS DOWNLOADS' > /etc/vsftpd.conf
 echo "listen=YES" >> /etc/vsftpd
 echo "listen_ipv6=NO" >> /etc/vsftpd.conf
 echo "anonymous_enable=YES" >> /etc/vsftpd.conf
@@ -302,10 +302,11 @@ cd /root
 git clone https://github.com/tobor88/Bash
 cd Bash
 sudo chmod u+x *.sh
-files=$(ls | grep ".sh")
+files=$(ls "*.sh")
 for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
 sudo ssh-keygen -b 4096 -t rsa -f /root/.ssh
 su -c "ssh-keygen -b 4096 -t rsa -f /home/kali/.ssh" kali
 echo 'Running ghidra for the first time. Enter the following location for the JDK install: /usr/share/jdk-11.0.7+10'
+bash /opt/ghidra_*_PUBLIC/ghidraRun
 
 sudo updatedb
