@@ -12,6 +12,7 @@ sudo systemctl enable postgresql
 
 # PIP INSTALLS 
 sudo apt install cmake -y
+sudo apt install gdb -y
 sudo apt install python-setuptools -y
 sudo apt install python3-setuptools -y
 sudo apt install python-dev -y
