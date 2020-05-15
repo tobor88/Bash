@@ -246,7 +246,7 @@ wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
 sudo apt install vsftpd -y
 mkdir -p /var/ftp/public
 sudo chown nobody:nogroup /var/ftp/public
-sudo useraddd ftpsecure
+sudo useradd ftpsecure
 cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
 echo '# VSFTP SERVER ANONYMOUS DOWNLOADS' > /etc/vsftpd.conf
 echo "listen=YES" >> /etc/vsftpd.conf
