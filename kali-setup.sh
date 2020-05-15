@@ -125,31 +125,22 @@ sudo /opt/Empire/setup/install.sh
 
 # TMUX 
 cd /opt
+sudo touch /root/.tmux.conf
 git clone https://github.com/tmux-plugins/tmux-logging.git
-echo ‘###################################’ >> /root/.tmux.conf
-echo "  TMUX CUSTOM CONFIGURATION FILE ” >> /root/.tmux.conf
-echo ‘###################################’ >> /root/.tmux.conf
-echo "" >> /root/.tmux.conf
-echo ‘# Quality of life stuff’ >> /root/.tmux.conf
-echo "set -g history-limit 50000" >> /root/.tmux.conf
-echo "set -g allow-rename off" >> /root/.tmux.conf
-echo "" >> /root/.tmux.conf
-echo ‘## Join Windows’ >> /root/.tmux.conf
-echo -en "bind-key j command-prompt -p \"join pane from:\" \"join-pane -s \'%%\'\"\n" >> /root/.tmux.conf
-echo -en "bind-key s command-prompt -p \"join pane to:\" \"join-pane -t '%%'\"" >> /root/.tmux.conf
-echo "" >> /root/.tmux.conf
-echo ‘# Search Mode VI (default is emac)’ >> /root/.tmux.conf
-echo "set-window-option -g mode-keys vi" >> /root/.tmux.conf
-echo ‘# git clone https://github.com/tmux-plugins/tmux-logging.git’ >> /root/.tmux.conf
-echo "run-shell /opt/tmux-logging/logging.tmux" >> /root/.tmux.conf
-echo "" >> /root/.tmux.conf
-echo ‘# Plugins’ >> /root/.tmux.conf
-echo -en "set -g @plugin 'tmux-plugins/tmux-logging'" >> /root/.tmux.conf
-echo "" >> /root/.tmux.conf
-echo ‘# Uses the default terminal color scheme for text’ >> /root/.tmux.conf
-echo -en "set -g default-terminal \"screen-256color\"" >> /root/.tmux.conf
-echo "" >> /root/.tmux.conf
-echo "run-shell /opt/tmux-logging/logging.tmux' >> /root/.tmux.conf" >> /root/.tmux.conf
+echo "set -g history-limit 50000" >> ~/.tmux.conf
+echo "set -g allow-rename off" >> ~/.tmux.conf
+echo " " >> ~/.tmux.conf
+echo -en "bind-key j command-prompt -p \"join pane from:\" \"join-pane -s \'%%\'\"\n" >> ~/.tmux.conf
+echo -en "bind-key s command-prompt -p \"join pane to:\" \"join-pane -t '%%'\"" >> ~/.tmux.conf
+echo " " >> ~/.tmux.conf
+echo "set-window-option -g mode-keys vi" >> ~/.tmux.conf
+echo "run-shell /opt/tmux-logging/logging.tmux" >> ~/.tmux.conf
+echo " " >> ~/.tmux.conf
+echo "set -g @plugin 'tmux-plugins/tmux-logging'" >> ~/.tmux.conf
+echo " " >> ~/.tmux.conf
+echo -en "set -g default-terminal \"screen-256color\"\n" >> ~/.tmux.conf
+echo "" >> ~/.tmux.conf
+echo 'run-shell /opt/tmux-logging/logging.tmux' >> ~/.tmux.conf
 
 # PROXIES
 sudo mkdir /usr/share/proxies
