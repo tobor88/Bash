@@ -1,6 +1,6 @@
 # I do my best to keep this updated with tools I use so rebuilding a Kali ISO doesn't take all day
 # Script runtime is about 20 minutes. If you have ideas to make this even faster feel free to contribute 
-#
+# Kali cant run this as a script. Copy and paste everything all at once.
 # Last Tested on Kali 2020.2 on May 14 2020
 
 echo "Setup Burpsuite CA Certificate and set 'Enable Interception at Startup' to 'Always Disable'"
@@ -15,9 +15,9 @@ sudo apt install cmake -y
 sudo apt install python-setuptools -y
 sudo apt install python3-setuptools -y
 sudo apt install python-dev -y
-python -m easy_install pip
 sudo apt install python3-pip -y
-sudo apt install seclists -y &
+sudo apt install seclists -y
+python -m easy_install pip
 pip install wheel
 pip install keystone-engine
 pip install capstone
@@ -249,7 +249,7 @@ sudo chown nobody:nogroup /var/ftp/public
 sudo useraddd ftpsecure
 cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
 echo '# VSFTP SERVER ANONYMOUS DOWNLOADS' > /etc/vsftpd.conf
-echo "listen=YES" >> /etc/vsftpd
+echo "listen=YES" >> /etc/vsftpd.conf
 echo "listen_ipv6=NO" >> /etc/vsftpd.conf
 echo "anonymous_enable=YES" >> /etc/vsftpd.conf
 echo "local_enable=NO" >> /etc/vsftpd.conf
