@@ -131,8 +131,10 @@ sudo git clone https://github.com/EmpireProject/Empire.git
 sudo /opt/Empire/setup/install.sh
 
 # GHIDRA
-(wget https://ghidra-sre.org/ghidra_9.1.2_PUBLIC_20200212.zip && unzip /opt/ghidra_9.1.2_PUBLIC_20200212.zip) &
-(wget https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz && tar xzvf OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz -C /usr/share/) &
+wget https://ghidra-sre.org/ghidra_9.1.2_PUBLIC_20200212.zip 
+unzip /opt/ghidra_9.1.2_PUBLIC_20200212.zip
+wget https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
+tar xzvf OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz -C /usr/share/
 
 # TMUX 
 cd /opt
