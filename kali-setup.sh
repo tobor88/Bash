@@ -311,6 +311,7 @@ sudo mkdir /root/HTB
 sudo mkdir /root/HTB/Boxes
 sudo mkdir /root/HTB/Challenges
 sudo mkdir /root/HTB/Labs
+sudo mkdir /media/hgfs
 sudo systemctl stop nfs-server.service
 sudo systemctl disable nfs-server.service
 cd /root
