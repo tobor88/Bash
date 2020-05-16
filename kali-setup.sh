@@ -297,6 +297,8 @@ echo "one_process_model=YES" >> /etc/vsftpd.conf
 echo "ssl_enable=NO" >> /etc/vsftpd.conf
 echo "rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem" >> /etc/vsftpd.conf
 echo "rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key" >> /etc/vsftpd.conf
+sudo systemctl enable vsftpd
+sudo systemctl start vsftpd
 
 # BASH PROFILES
 ln -sf /dev/null /root/.bash_history
@@ -306,7 +308,7 @@ echo 'export VISUAL="vim"' >> /root/.bashrc
 echo 'export EDITOR="vim"' >> /home/kali/.bashrc
 echo 'export VISUAL="vim"' >> /home/kali/.bashrc
 sudo cp /home/kali/.bashrc /root/
-sudp cp /home/kali/.profile /root/
+sudo cp /home/kali/.profile /root/
 sudo mkdir /root/HTB
 sudo mkdir /root/HTB/Boxes
 sudo mkdir /root/HTB/Challenges
