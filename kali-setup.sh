@@ -111,7 +111,6 @@ sudo apt install gobuster -y
 sudo apt install rlwrap -y
 sudo apt install docker -y
 sudo apt install docker.io -y
-sudo apt install docker-compose -y
 sudo apt install neo4j -y
 sudo apt install bloodhound -y
 sudo apt install wfuzz -y
@@ -328,3 +327,6 @@ echo 'Running ghidra for the first time. Enter the following location for the JD
 bash /opt/ghidra_*_PUBLIC/ghidraRun
 
 sudo updatedb
+
+# Computer needs a restart after docker-compose is installed
+sudo apt install docker-compose -y
