@@ -302,19 +302,54 @@ sudo systemctl start vsftpd
 # BASH PROFILES
 ln -sf /dev/null /root/.bash_history
 ln -sf /dev/null /home/kali/.bash_history
+
 echo 'export EDITOR="vim"' >> /root/.bashrc
 echo 'export VISUAL="vim"' >> /root/.bashrc
 echo 'export EDITOR="vim"' >> /home/kali/.bashrc
 echo 'export VISUAL="vim"' >> /home/kali/.bashrc
 sudo cp /home/kali/.bashrc /root/
 sudo cp /home/kali/.profile /root/
+
 sudo mkdir /root/HTB
 sudo mkdir /root/HTB/Boxes
 sudo mkdir /root/HTB/Challenges
 sudo mkdir /root/HTB/Labs
 sudo mkdir /media/hgfs
+
+echo "Creating bash aliases"
+# Bash Aliases
+echo "alias ls='ls --color=auto'" > /root/.bash_aliases
+echo "alias dir='dir --color=auto'" >> /root/.bash_aliases
+echo "alias vdir='vdir --color=auto'">> /root/.bash_aliases
+echo "alias grep='grep --color=auto'" >> /root/.bash_aliases
+echo "alias fgrep='fgrep --color=auto'" >> /root/.bash_aliases
+echo "alias egrep='egrep --color=auto'" >> /root/.bash_aliases
+echo "alias ll='ls -la'" >> /root/.bash_aliases
+echo "alias la='ls -lashF'" >> /root/.bash_aliases
+echo "alias l='ls -CF'" >> /root/.bash_aliases
+echo "alias cd..='cd ..'" >> /root/.bash_aliases
+echo "alias cls='clear'" >> /root/.bash_aliases
+echo "alias pyhton='python'" >> /root/.bash_aliases
+echo "alias pyhton3='python3'" >> /root/.bash_aliases
+
+echo "alias ls='ls --color=auto'" > /home/kali/.bash_aliases
+echo "alias dir='dir --color=auto'" >> /home/kali/.bash_aliases
+echo "alias vdir='vdir --color=auto'">> /home/kali/.bash_aliases
+echo "alias grep='grep --color=auto'" >> /home/kali/.bash_aliases
+echo "alias fgrep='fgrep --color=auto'" >> /home/kali/.bash_aliases
+echo "alias egrep='egrep --color=auto'" >> /home/kali/.bash_aliases
+echo "alias ll='ls -la'" >> /home/kali/.bash_aliases
+echo "alias la='ls -lashF'" >> /home/kali/.bash_aliases
+echo "alias l='ls -CF'" >> /home/kali/.bash_aliases
+echo "alias cd..='cd ..'" >> /home/kali/.bash_aliases
+echo "alias cls='clear'" >> /home/kali/.bash_aliases
+echo "alias pyhton='python'" >> /home/kali/.bash_aliases
+echo "alias pyhton3='python3'" >> /home/kali/.bash_aliases
+sudo chown kali:kali /home/kali/.bash_aliases
+
 sudo systemctl stop nfs-server.service
 sudo systemctl disable nfs-server.service
+
 cd /root
 git clone https://github.com/tobor88/Bash
 cd Bash
