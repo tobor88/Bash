@@ -303,6 +303,10 @@ sudo systemctl start vsftpd
 ln -sf /dev/null /root/.bash_history
 ln -sf /dev/null /home/kali/.bash_history
 
+sed -i 's/HISTSIZE=1000/HISTSIZE=10000/g' /home/kali/.bashrc
+sed -i 's/HISTFILESIZE=2000/HISTSIZE=20000/g' /home/kali/.bashrc
+sudo sed -i 's/HISTSIZE=1000/HISTSIZE=10000/g' /root/.bashrc
+sudo sed -i 's/HISTFILESIZE=2000/HISTSIZE=20000/g' /root/.bashrc
 echo 'export EDITOR="vim"' >> /root/.bashrc
 echo 'export VISUAL="vim"' >> /root/.bashrc
 echo 'export EDITOR="vim"' >> /home/kali/.bashrc
