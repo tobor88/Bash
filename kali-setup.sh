@@ -307,10 +307,11 @@ sed -i 's/HISTSIZE=1000/HISTSIZE=10000/g' /home/kali/.bashrc
 sed -i 's/HISTFILESIZE=2000/HISTSIZE=20000/g' /home/kali/.bashrc
 sudo sed -i 's/HISTSIZE=1000/HISTSIZE=10000/g' /root/.bashrc
 sudo sed -i 's/HISTFILESIZE=2000/HISTSIZE=20000/g' /root/.bashrc
-echo 'export EDITOR="vim"' >> /root/.bashrc
-echo 'export VISUAL="vim"' >> /root/.bashrc
 echo 'export EDITOR="vim"' >> /home/kali/.bashrc
 echo 'export VISUAL="vim"' >> /home/kali/.bashrc
+echo 'NMAP="/usr/share/nmap/scripts"' >> /home/kali/.bashrc
+echo 'IMPACKET="/usr/share/doc/python3-impacket/examples"' >> /home/kali/.bashrc
+
 sudo cp /home/kali/.bashrc /root/
 sudo cp /home/kali/.profile /root/
 
@@ -364,6 +365,8 @@ sudo ssh-keygen -b 4096 -t rsa -f /root/.ssh
 su -c "ssh-keygen -b 4096 -t rsa -f /home/kali/.ssh" kali
 echo 'Running ghidra for the first time. Enter the following location for the JDK install: /usr/share/jdk-11.0.7+10'
 bash /opt/ghidra_*_PUBLIC/ghidraRun
+source ~/.bashrc
+source ~/.profile
 
 sudo updatedb
 
