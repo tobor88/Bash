@@ -79,6 +79,7 @@ sudo apt install wifite -y
 sudo apt install kismet -y
 sudo apt install crunch -y
 sudo apt install cewl -y
+sudo apt install crowbar -y
 sudo apt install jxplorer -y
 sudo apt install smbmap -y
 sudo apt install armitage -y
@@ -109,6 +110,7 @@ sudo apt install firewalk -y
 sudo apt install hping3 -y
 sudo apt install gobuster -y
 sudo apt install rlwrap -y
+sudo apt install patator -y
 sudo apt install docker -y
 sudo apt install docker.io -y
 sudo apt install neo4j -y
