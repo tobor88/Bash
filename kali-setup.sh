@@ -170,6 +170,9 @@ cd /usr/share
 sudo git clone https://github.com/int0x33/nc.exe.git
 sudo git clone https://github.com/tennc/fuzzdb.git
 sudo git clone https://github.com/tarunkant/Gopherus.git
+cd /usr/share/Gopherus
+/usr/share/Gopherus/install.sh
+cd /usr/share
 sudo git clone https://boringssl.googlesource.com/boringssl
 sudo git clone --recursive https://github.com/cloudflare/quiche
 cd quiche
