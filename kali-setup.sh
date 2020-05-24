@@ -177,6 +177,7 @@ QUICHE_BSSL_PATH="/usr/share/boringssl" cargo build --examples
 cd /usr/share/
 sudo git clone https://github.com/frohoff/ysoserial.git
 sudo git clone https://github.com/Tib3rius/AutoRecon.git
+sudo git clone https://github.com/arthaud/git-dumper.git
 sudo git clone https://github.com/trickster0/Enyx.git
 cp /usr/share/Enyx/enyx.py /usr/local/bin/enyx
 chmod a+x /usr/local/bin/enyx
