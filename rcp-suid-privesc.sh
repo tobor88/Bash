@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# According to exploitdb this method does not work in all situations. I wrote this for a lab by Offensive Security.
-# Despite having the suid bit set this did not work on the lab machine.
+# According to exploitdb this method does not work in all situations and has only been tested on a version of Red Hat
 
 RCPFILE="/usr/bin/rcp" ;
 TEST=$(ls -ld $RCPFILE)
