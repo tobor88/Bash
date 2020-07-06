@@ -72,6 +72,7 @@ sudo apt install beef -y
 sudo apt install ncat -y
 sudo apt install stoken -y
 sudo apt install recon-ng -y
+sudo apt install brutespray -y
 sudo apt install checksec -y
 sudo apt install reaver -y
 sudo apt install guake -y
