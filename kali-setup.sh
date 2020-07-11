@@ -123,11 +123,14 @@ sudo apt install ident-user-enum -y
 sudo apt install cargo -y
 sudo apt install npm -y
 sudo apt install npm --fix-broken -y
-npm install -g sql-cli
 sudo apt install powershell -y
 sudo apt install golang -y
 sudo go get github.com/ffuf/ffuf
 sudo cp /root/go/bin/ffuf /usr/local/bin/ffuf
+
+# NPM INSTALLS
+npm install -g sql-cli
+npm install -g memached-cli
 
 # EMPIRE
 cd /opt
@@ -173,6 +176,7 @@ cd /usr/share
 sudo git clone https://github.com/int0x33/nc.exe.git
 sudo git clone https://github.com/tennc/fuzzdb.git
 sudo git clone https://github.com/Keramas/DS_Walk
+sudo git clone https://github.com/internetwache/GitTools.git
 sudo git clone https://github.com/tarunkant/Gopherus.git
 cd /usr/share/Gopherus
 /usr/share/Gopherus/install.sh
