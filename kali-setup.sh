@@ -130,7 +130,7 @@ sudo cp /root/go/bin/ffuf /usr/local/bin/ffuf
 
 # NPM INSTALLS
 npm install -g sql-cli
-npm install -g memached-cli
+npm install -g memcached-cli
 
 # EMPIRE
 cd /opt
