@@ -83,6 +83,7 @@ sudo apt install wifite -y
 sudo apt install kismet -y
 sudo apt install crunch -y
 sudo apt install cewl -y
+sudo apt install xclip -y
 sudo apt install crowbar -y
 sudo apt install jxplorer -y
 sudo apt install smbmap -y
