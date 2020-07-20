@@ -203,6 +203,8 @@ sudo git clone https://github.com/ccavxx/Kadimus.git
 sudo git clone https://github.com/pwntester/ysoserial.net.git
 sudo git clone https://github.com/Hackplayers/evil-winrm.git
 ln -sf /usr/share/AutoRecon/autorecon.py /usr/local/bin/autorecon
+wget http://pentestmonkey.net/tools/finger-user-enum/finger-user-enum-1.0.tar.gz
+tar xzf finger-user-enum-1.0.tar.gz
 
 # WINDOWS RESOURCES
 cd /usr/share/windows-resources
