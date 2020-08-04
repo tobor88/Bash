@@ -96,6 +96,9 @@ sudo apt install putty-tools -y
 sudo apt install httptunnel -y
 sudo apt install exiftool -y
 sudo apt install squid -y
+sudo apt install squidclient -y
+sudo apt install squid-cgi -y
+sudo apt install squid-common -y
 sudo apt install encfs -y
 sudo apt install gdbserver -y
 sudo apt install qemu-utils -y
