@@ -183,6 +183,9 @@ sudo ./setup.py install
 cd /usr/share 
 sudo git clone https://github.com/int0x33/nc.exe.git
 sudo git clone https://github.com/tennc/fuzzdb.git
+sudo git clone https://github.com/AlessandroZ/LaZagne.git
+pip3 install -r /usr/share/LaZagne/requirements.txt
+pip3 install -r /usr/share/LaZagne/requirements.txt
 sudo git clone https://github.com/Keramas/DS_Walk
 sudo git clone https://github.com/internetwache/GitTools.git
 sudo git clone https://github.com/tarunkant/Gopherus.git
