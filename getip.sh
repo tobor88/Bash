@@ -7,7 +7,7 @@ function get_public_ip {
 
 
 function get_private_ip {
-        ifconfig | grep 'inet ' | awk {'print $2'}
+        ip a | grep 'inet ' | awk {'print $2'} || ifconfig | grep 'inet ' | awk {'print $1'}
 }  # end function get_prviate_ip
 
 
