@@ -1,23 +1,33 @@
 #!/bin/bash
 
-echo "Getting IP Addresses, Please Wait..."
 
-public=$(curl -s http://whatismijnip.nl | cut -d " " -f 5)
+function get_public_ip {
+	curl -s http://whatismijnip.nl | cut -d " " -f 5
+}  # end function get_public_ip
 
-private=$(ip a | grep 'inet ' | awk {'print $2'})
 
-if [ "$public" != "" ]
+function get_private_ip {
+        ifconfig | grep 'inet ' | awk {'print $2'}
+}  # end function get_prviate_ip
+
+
+echo "[*] Getting IP Addresses, Please Wait..."
+
+PUBLIC=$( get_public_ip )
+PRIVATE=$( get_private_ip )
+
+if [ "$PUBLIC" != "" ]
 then
-	echo "=========================" 
-	echo "Public: "
-	echo "-------------------------"
-	echo "$public"
+        echo "========================="
+        echo "Public: "
+        echo "-------------------------"
+        echo "$PUBLIC"
 else
-	echo "Public IP address could not be found."
+        echo "[!] Public IP address could not be found."
 fi
 
 echo "========================="
 echo "Private: "
 echo "-------------------------"
-echo "$private"
+echo "$PRIVATE"
 echo "========================="
