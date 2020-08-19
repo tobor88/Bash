@@ -7,18 +7,18 @@ echo "Setup Burpsuite CA Certificate and set 'Enable Interception at Startup' to
 
 # SERVICES
 gzip -d /usr/share/wordlists/rockyou.txt.gz
-msfdb init
+sudo msfdb init
 sudo systemctl enable postgresql
 
 # PIP INSTALLS 
-sudo apt install cmake -y
-sudo apt install gdb -y
-sudo apt install python-setuptools -y
-sudo apt install python3-setuptools -y
-sudo apt install python-dev -y
-sudo apt install python3-pip -y
-sudo apt install python-pip -y
-sudo apt install seclists -y
+sudo apt-get install cmake -y
+sudo apt-get install gdb -y
+sudo apt-get install python-setuptools -y
+sudo apt-get install python3-setuptools -y
+sudo apt-get install python-dev -y
+sudo apt-get install python3-pip -y
+sudo apt-get install python-pip -y
+sudo apt-get install seclists -y
 python -m easy_install pip
 pip install wheel
 pip install keystone-engine
@@ -66,71 +66,71 @@ gem install winrm-s
 gem install winrm-fs
 
 # APT INSTALLS
-sudo apt install tmux -y
-sudo apt install hashcat -y
-sudo apt install git -y
-sudo apt install vim -y
-sudo apt install beef -y
-sudo apt install ncat -y
-sudo apt install stoken -y
-sudo apt install recon-ng -y
-sudp apt install maven -y
-sudo apt install brutespray -y
-sudo apt install ismtp -y
-sudo apt install checksec -y
-sudo apt install reaver -y
-sudo apt install guake -y
-sudo apt install wifite -y
-sudo apt install kismet -y
-sudo apt install crunch -y
-sudo apt install cewl -y
-sudo apt install xclip -y
-sudo apt install crowbar -y
-sudo apt install jxplorer -y
-sudo apt install smbmap -y
-sudo apt install armitage -y
-sudo apt install wfuzz -y
-sudo apt install nfs-kernel-server -y
-sudo apt install sqlmap -y
-sudo apt install putty-tools -y
-sudo apt install httptunnel -y
-sudo apt install exiftool -y
-sudo apt install squid -y
-sudo apt install squidclient -y
-sudo apt install squid-cgi -y
-sudo apt install squid-common -y
-sudo apt install encfs -y
-sudo apt install gdbserver -y
-sudo apt install qemu-utils -y
-sudo apt install libcurl4-openssl-dev
-sudo apt install steghide -y
-sudo apt install evil-ssdp
-sudo apt install dnschef -y
-sudo apt install mingw-w64 -y
-sudo apt install smtp-user-enum -y 
-sudo apt install samdump2 -y
-sudo apt install lftp -y
-sudo apt install python3-pip -y
-sudo apt install responder -y
-sudo apt install unicornscan -y
-sudo apt install crackmapexec -y
-sudo apt install shellter -y
-sudo apt install wpscan -y
-sudo apt install nbtscan -y
-sudo apt install firewalk -y
-sudo apt install hping3 -y
-sudo apt install gobuster -y
-sudo apt install rlwrap -y
-sudo apt install patator -y
-sudo apt install neo4j -y
-sudo apt install bloodhound -y
-sudo apt install wfuzz -y
-sudo apt install ident-user-enum -y
-sudo apt install cargo -y
-sudo apt install npm -y
-sudo apt install npm --fix-broken -y
-sudo apt install powershell -y
-sudo apt install golang -y
+sudo apt-get install tmux -y
+sudo apt-get install hashcat -y
+sudo apt-get install git -y
+sudo apt-get install vim -y
+sudo apt-get install beef -y
+sudo apt-get install ncat -y
+sudo apt-get install stoken -y
+sudo apt-get install recon-ng -y
+sudp apt-get install maven -y
+sudo apt-get install brutespray -y
+sudo apt-get install ismtp -y
+sudo apt-get install checksec -y
+sudo apt-get install reaver -y
+sudo apt-get install guake -y
+sudo apt-get install wifite -y
+sudo apt-get install kismet -y
+sudo apt-get install crunch -y
+sudo apt-get install cewl -y
+sudo apt-get install xclip -y
+sudo apt-get install crowbar -y
+sudo apt-get install jxplorer -y
+sudo apt-get install smbmap -y
+sudo apt-get install armitage -y
+sudo apt-get install wfuzz -y
+sudo apt-get install nfs-kernel-server -y
+sudo apt-get install sqlmap -y
+sudo apt-get install putty-tools -y
+sudo apt-get install httptunnel -y
+sudo apt-get install exiftool -y
+sudo apt-get install squid -y
+sudo apt-get install squidclient -y
+sudo apt-get install squid-cgi -y
+sudo apt-get install squid-common -y
+sudo apt-get install encfs -y
+sudo apt-get install gdbserver -y
+sudo apt-get install qemu-utils -y
+sudo apt-get install libcurl4-openssl-dev
+sudo apt-get install steghide -y
+sudo apt-get install evil-ssdp
+sudo apt-get install dnschef -y
+sudo apt-get install mingw-w64 -y
+sudo apt-get install smtp-user-enum -y 
+sudo apt-get install samdump2 -y
+sudo apt-get install lftp -y
+sudo apt-get install python3-pip -y
+sudo apt-get install responder -y
+sudo apt-get install unicornscan -y
+sudo apt-get install crackmapexec -y
+sudo apt-get install shellter -y
+sudo apt-get install wpscan -y
+sudo apt-get install nbtscan -y
+sudo apt-get install firewalk -y
+sudo apt-get install hping3 -y
+sudo apt-get install gobuster -y
+sudo apt-get install rlwrap -y
+sudo apt-get install patator -y
+sudo apt-get install neo4j -y
+sudo apt-get install bloodhound -y
+sudo apt-get install wfuzz -y
+sudo apt-get install ident-user-enum -y
+sudo apt-get install cargo -y
+sudo apt-get install npm -y
+sudo apt-get install npm --fix-broken -y
+sudo apt-get install powershell -y
+sudo apt-get install golang -y
 sudo go get github.com/ffuf/ffuf
 sudo cp /root/go/bin/ffuf /usr/local/bin/ffuf
 
@@ -144,29 +144,29 @@ sudo git clone https://github.com/EmpireProject/Empire.git
 sudo /opt/Empire/setup/install.sh
 
 # GHIDRA
-wget https://ghidra-sre.org/ghidra_9.1.2_PUBLIC_20200212.zip 
-unzip /opt/ghidra_9.1.2_PUBLIC_20200212.zip
-wget https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
-tar xzvf OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz -C /usr/share/
+sudo wget https://ghidra-sre.org/ghidra_9.1.2_PUBLIC_20200212.zip 
+sudo unzip /opt/ghidra_9.1.2_PUBLIC_20200212.zip
+sudo wget https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
+sudo tar xzvf OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz -C /usr/share/
 
 # TMUX 
 cd /opt
 sudo touch /root/.tmux.conf
-git clone https://github.com/tmux-plugins/tmux-logging.git
-echo "set -g history-limit 50000" >> ~/.tmux.conf
-echo "set -g allow-rename off" >> ~/.tmux.conf
-echo " " >> ~/.tmux.conf
-echo -en "bind-key j command-prompt -p \"join pane from:\" \"join-pane -s \'%%\'\"\n" >> ~/.tmux.conf
-echo -en "bind-key s command-prompt -p \"join pane to:\" \"join-pane -t '%%'\"" >> ~/.tmux.conf
-echo " " >> ~/.tmux.conf
-echo "set-window-option -g mode-keys vi" >> ~/.tmux.conf
-echo "run-shell /opt/tmux-logging/logging.tmux" >> ~/.tmux.conf
-echo " " >> ~/.tmux.conf
-echo "set -g @plugin 'tmux-plugins/tmux-logging'" >> ~/.tmux.conf
-echo " " >> ~/.tmux.conf
-echo -en "set -g default-terminal \"screen-256color\"\n" >> ~/.tmux.conf
-echo "" >> ~/.tmux.conf
-echo 'run-shell /opt/tmux-logging/logging.tmux' >> ~/.tmux.conf
+sudo git clone https://github.com/tmux-plugins/tmux-logging.git
+sudo echo "set -g history-limit 50000" >> ~/.tmux.conf
+sudo echo "set -g allow-rename off" >> ~/.tmux.conf
+sudo echo " " >> ~/.tmux.conf
+sudo echo -en "bind-key j command-prompt -p \"join pane from:\" \"join-pane -s \'%%\'\"\n" >> ~/.tmux.conf
+sudo echo -en "bind-key s command-prompt -p \"join pane to:\" \"join-pane -t '%%'\"" >> ~/.tmux.conf
+sudo echo " " >> ~/.tmux.conf
+sudo echo "set-window-option -g mode-keys vi" >> ~/.tmux.conf
+sudo echo "run-shell /opt/tmux-logging/logging.tmux" >> ~/.tmux.conf
+sudo echo " " >> ~/.tmux.conf
+sudo echo "set -g @plugin 'tmux-plugins/tmux-logging'" >> ~/.tmux.conf
+sudo echo " " >> ~/.tmux.conf
+sudo echo -en "set -g default-terminal \"screen-256color\"\n" >> ~/.tmux.conf
+sudo echo "" >> ~/.tmux.conf
+sudo echo 'run-shell /opt/tmux-logging/logging.tmux' >> ~/.tmux.conf
 
 # PROXIES
 sudo mkdir /usr/share/proxies
@@ -199,41 +199,41 @@ cd /usr/share/
 sudo git clone https://github.com/frohoff/ysoserial.git
 sudo git clone https://github.com/Tib3rius/AutoRecon.git
 sudo git clone https://github.com/skelsec/pypykatz.git
-python /usr/share/pypykatz/setup.py install
+sudo python /usr/share/pypykatz/setup.py install
 sudo git clone https://github.com/arthaud/git-dumper.git
 sudo git clone https://github.com/trickster0/Enyx.git
-cp /usr/share/Enyx/enyx.py /usr/local/bin/enyx
-chmod a+x /usr/local/bin/enyx
+sudo cp /usr/share/Enyx/enyx.py /usr/local/bin/enyx
+sudo chmod a+x /usr/local/bin/enyx
 sudo git clone https://github.com/superkojiman/rfishell.git
 sudo git clone https://github.com/ccavxx/Kadimus.git
 sudo git clone https://github.com/pwntester/ysoserial.net.git
 sudo git clone https://github.com/Hackplayers/evil-winrm.git
-ln -sf /usr/share/AutoRecon/autorecon.py /usr/local/bin/autorecon
-wget http://pentestmonkey.net/tools/finger-user-enum/finger-user-enum-1.0.tar.gz
-tar xzf finger-user-enum-1.0.tar.gz
+sudo ln -sf /usr/share/AutoRecon/autorecon.py /usr/local/bin/autorecon
+sudo wget http://pentestmonkey.net/tools/finger-user-enum/finger-user-enum-1.0.tar.gz
+sudo tar xzf finger-user-enum-1.0.tar.gz
 
 # WINDOWS RESOURCES
 cd /usr/share/windows-resources
-git clone https://github.com/besimorhino/powercat.git
-git clone https://github.com/trustedsec/unicorn.git
-git clone https://github.com/irsdl/IIS-ShortName-Scanner
-git clone https://github.com/peewpw/Invoke-WCMDump.git
-git clone https://github.com/rasta-mouse/Sherlock.git
-git clone https://github.com/rasta-mouse/Watson.git
-git clone https://github.com/cyberark/RiskySPN.git
-git clone https://github.com/EliteLoser/Invoke-PsExec.git
-git clone https://github.com/ZilentJack/Spray-Passwords.git
-git clone https://github.com/fox-it/BloodHound.py.git
-git clone https://github.com/AonCyberLabs/Windows-Exploit-Suggester.git
-git clone https://github.com/bitsadmin/wesng.git
-git clone https://github.com/tobor88/ReversePowerShell.git
-git clone https://github.com/tobor88/PowerShell-Red-Team.git
-git clone https://github.com/TsukiCTF/Lovely-Potato.git
-git clone https://github.com/SecWiki/windows-kernel-exploits.git
-git clone https://github.com/Arvanaghi/SessionGopher.git
-git clone https://github.com/411Hall/JAWS.git
-git clone https://github.com/davehardy20/sysinternals.git
-git clone https://github.com/AlessandroZ/BeRoot.git
+sudo git clone https://github.com/besimorhino/powercat.git
+sudo git clone https://github.com/trustedsec/unicorn.git
+sudo git clone https://github.com/irsdl/IIS-ShortName-Scanner
+sudo git clone https://github.com/peewpw/Invoke-WCMDump.git
+sudo git clone https://github.com/rasta-mouse/Sherlock.git
+sudo git clone https://github.com/rasta-mouse/Watson.git
+sudo git clone https://github.com/cyberark/RiskySPN.git
+sudo git clone https://github.com/EliteLoser/Invoke-PsExec.git
+sudo git clone https://github.com/ZilentJack/Spray-Passwords.git
+sudo git clone https://github.com/fox-it/BloodHound.py.git
+sudo git clone https://github.com/AonCyberLabs/Windows-Exploit-Suggester.git
+sudo git clone https://github.com/bitsadmin/wesng.git
+sudo git clone https://github.com/tobor88/ReversePowerShell.git
+sudo git clone https://github.com/tobor88/PowerShell-Red-Team.git
+sudo git clone https://github.com/TsukiCTF/Lovely-Potato.git
+sudo git clone https://github.com/SecWiki/windows-kernel-exploits.git
+sudo git clone https://github.com/Arvanaghi/SessionGopher.git
+sudo git clone https://github.com/411Hall/JAWS.git
+sudo git clone https://github.com/davehardy20/sysinternals.git
+sudo git clone https://github.com/AlessandroZ/BeRoot.git
 sudo mkdir /usr/share/linux-resources/BeRoot
 sudo mv /usr/share/windows-resources/BeRoot/Linux/* /usr/share/linux-resources/BeRoot/
 sudo mv /usr/share/windows-resources/BeRoot/Windows/* /usr/share/windows-resources/BeRoot/
@@ -243,14 +243,14 @@ sudo rm -r /usr/share/windows-resources/BeRoot/Linux/
 # LINUX RESOURCES
 sudo mkdir /usr/share/linux-resources
 cd /usr/share/linux-resources
-git clone https://github.com/mzet-/linux-exploit-suggester.git
-git clone https://github.com/rebootuser/LinEnum.git
-git clone https://github.com/DominicBreuker/pspy.git
-git clone https://github.com/jondonas/linux-exploit-suggester-2.git
-git clone https://github.com/saghul/lxd-alpine-builder.git
-/usr/share/linux-resources/lxd-alpine-builder/build-alpine
-cp /usr/share/linux-resources/lxd-apline/builder/alpine-v*.tar.gz /var/www/html/
-git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite.git
+sudo git clone https://github.com/mzet-/linux-exploit-suggester.git
+sudo git clone https://github.com/rebootuser/LinEnum.git
+sudo git clone https://github.com/DominicBreuker/pspy.git
+sudo git clone https://github.com/jondonas/linux-exploit-suggester-2.git
+sudo git clone https://github.com/saghul/lxd-alpine-builder.git
+sudo /usr/share/linux-resources/lxd-alpine-builder/build-alpine
+sudo cp /usr/share/linux-resources/lxd-apline/builder/alpine-v*.tar.gz /var/www/html/
+sudo git clone https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite.git
 sudo mv privilege-escalation-awesome-scripts-suite/linPEAS/ /usr/share/linux-resources/
 sudo mv privilege-escalation-awesome-scripts-suite/winPEAS/ /usr/share/windows-resources/
 sudo cp privilege-escalation-awesome-scripts-suite/README.md /usr/share/windows-resources/
@@ -259,76 +259,76 @@ sudo rm -r -- /usr/share/linux-resources/privilege-escalation-awesome-scripts-su
 
 # WEBSHELLS
 cd /usr/share/webshells/php
-git clone https://github.com/flozz/p0wny-shell.git
-git clone https://github.com/WhiteWinterWolf/wwwolf-php-webshell.git
-git clone https://github.com/jgor/php-jpeg-shell.git
-git clone https://github.com/epinna/weevely3.git
+sudo git clone https://github.com/flozz/p0wny-shell.git
+sudo git clone https://github.com/WhiteWinterWolf/wwwolf-php-webshell.git
+sudo git clone https://github.com/jgor/php-jpeg-shell.git
+sudo git clone https://github.com/epinna/weevely3.git
 
 # APACHE2 SITE
 cd /var/www
-git clone https://github.com/tobor88/PayloadSiteForPenTesters.git
+sudo git clone https://github.com/tobor88/PayloadSiteForPenTesters.git
 sudo cp /var/www/PayloadSiteForPenTesters/* /var/www/html/
-cp /usr/share/windows-resources/Lovely-Potato/* /var/www/html/
+sudo cp /usr/share/windows-resources/Lovely-Potato/* /var/www/html/
 
 # WORDLISTS
 echo "Building all inclusive wordlist for URL fuzzing"
-cp /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt /usr/share/seclists/Discovery/Web-Content/
-cat /usr/share/seclists/Discovery/Web-Content/*.txt | cut -d' ' -f2 |  sort -u  > /usr/share/seclists/Discoery/Web-Content/all-inclusive.txt
+sudo cp /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt /usr/share/seclists/Discovery/Web-Content/
+sudo cat /usr/share/seclists/Discovery/Web-Content/*.txt | cut -d' ' -f2 |  sort -u  > /usr/share/seclists/Discoery/Web-Content/all-inclusive.txt
 
 # DEBUGGERS
-wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
+sudo wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
 
 # CONFIGURE FTP SERVER ALLOW DOWNLOADS ONLY
-sudo apt install vsftpd -y
-mkdir -p /var/ftp/public
+sudo apt-get install vsftpd -y
+sudo mkdir -p /var/ftp/public
 sudo chown nobody:nogroup /var/ftp/public
 sudo useradd ftpsecure
-cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
-echo '# VSFTP SERVER ANONYMOUS DOWNLOADS' > /etc/vsftpd.conf
-echo "listen=YES" >> /etc/vsftpd.conf
-echo "listen_ipv6=NO" >> /etc/vsftpd.conf
-echo "anonymous_enable=YES" >> /etc/vsftpd.conf
-echo "local_enable=NO" >> /etc/vsftpd.conf
-echo "write_enable=NO" >> /etc/vsftpd.conf
-echo "local_umask=022" >> /etc/vsftpd.conf
-echo "anon_upload_enable=NO" >> /etc/vsftpd.conf
-echo "anon_mkdir_write_enable=NO" >> /etc/vsftpd.conf
-echo "anon_other_write_enable=NO" >> /etc/vsftpd.conf
-echo "dirmessage_enable=YES" >> /etc/vsftpd.conf
-echo "use_localtime=YES" >> /etc/vsftpd.conf
-echo "xferlog_enable=YES" >> /etc/vsftpd.conf
-echo "connect_from_port_20=YES" >> /etc/vsftpd.conf
-echo "chown_uploads=YES" >> /etc/vsftpd.conf
-echo "chown_username=nobody" >> /etc/vsftpd.conf
-echo "xferlog_file=/var/log/vsftpd.log" >> /etc/vsftpd.conf
-echo "idle_session_timeout=60" >> /etc/vsftpd.conf
-echo "data_connection_timeout=120" >> /etc/vsftpd.conf
-echo "accept_timeout=60" >> /etc/vsftpd.conf
-echo "connect_timeout=60" >> /etc/vsftpd.conf
-echo "nopriv_user=ftpsecure" >> /etc/vsftpd.conf
-echo "async_abor_enable=YES" >> /etc/vsftpd.conf
-echo "ascii_upload_enable=NO" >> /etc/vsftpd.conf
-echo "ascii_download_enable=NO" >> /etc/vsftpd.conf
-echo "ftpd_banner=FTP Anonymous Download Server" >> /etc/vsftpd.conf
-echo "anon_root=/var/ftp/public/" >> /etc/vsftpd.conf
-echo "no_anon_password=YES" >> /etc/vsftpd.conf
-echo "anon_max_rate=30000" >> /etc/vsftpd.conf
-echo "hide_ids=YES" >>/etc/vsftpd.conf
-echo "pasv_min_port=40000" >> /etc/vsftpd.conf
-echo "pasv_max_port=42000" >> /etc/vsftpd.conf
-echo "secure_chroot_dir=/var/run/vsftpd/empty" >> /etc/vsftpd.conf
-echo "pam_service_name=vsftpd" >> /etc/vsftpd.conf
-echo "ls_recurse_enable=NO" >> /etc/vsftpd.conf
-echo "utf8_filesystem=YES" >> /etc/vsftpd.conf
-echo "one_process_model=YES" >> /etc/vsftpd.conf
-echo "ssl_enable=NO" >> /etc/vsftpd.conf
-echo "rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem" >> /etc/vsftpd.conf
-echo "rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key" >> /etc/vsftpd.conf
+sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
+sudo echo '# VSFTP SERVER ANONYMOUS DOWNLOADS' > /etc/vsftpd.conf
+sudo echo "listen=YES" >> /etc/vsftpd.conf
+sudo echo "listen_ipv6=NO" >> /etc/vsftpd.conf
+sudo echo "anonymous_enable=YES" >> /etc/vsftpd.conf
+sudo echo "local_enable=NO" >> /etc/vsftpd.conf
+sudo echo "write_enable=NO" >> /etc/vsftpd.conf
+sudo echo "local_umask=022" >> /etc/vsftpd.conf
+sudo echo "anon_upload_enable=NO" >> /etc/vsftpd.conf
+sudo echo "anon_mkdir_write_enable=NO" >> /etc/vsftpd.conf
+sudo echo "anon_other_write_enable=NO" >> /etc/vsftpd.conf
+sudo echo "dirmessage_enable=YES" >> /etc/vsftpd.conf
+sudo echo "use_localtime=YES" >> /etc/vsftpd.conf
+sudo echo "xferlog_enable=YES" >> /etc/vsftpd.conf
+sudo echo "connect_from_port_20=YES" >> /etc/vsftpd.conf
+sudo echo "chown_uploads=YES" >> /etc/vsftpd.conf
+sudo echo "chown_username=nobody" >> /etc/vsftpd.conf
+sudo echo "xferlog_file=/var/log/vsftpd.log" >> /etc/vsftpd.conf
+sudo echo "idle_session_timeout=60" >> /etc/vsftpd.conf
+sudo echo "data_connection_timeout=120" >> /etc/vsftpd.conf
+sudo echo "accept_timeout=60" >> /etc/vsftpd.conf
+sudo echo "connect_timeout=60" >> /etc/vsftpd.conf
+sudo echo "nopriv_user=ftpsecure" >> /etc/vsftpd.conf
+sudo echo "async_abor_enable=YES" >> /etc/vsftpd.conf
+sudo echo "ascii_upload_enable=NO" >> /etc/vsftpd.conf
+sudo echo "ascii_download_enable=NO" >> /etc/vsftpd.conf
+sudo echo "ftpd_banner=FTP Anonymous Download Server" >> /etc/vsftpd.conf
+sudo echo "anon_root=/var/ftp/public/" >> /etc/vsftpd.conf
+sudo echo "no_anon_password=YES" >> /etc/vsftpd.conf
+sudo echo "anon_max_rate=30000" >> /etc/vsftpd.conf
+sudo echo "hide_ids=YES" >>/etc/vsftpd.conf
+sudo echo "pasv_min_port=40000" >> /etc/vsftpd.conf
+sudo echo "pasv_max_port=42000" >> /etc/vsftpd.conf
+sudo echo "secure_chroot_dir=/var/run/vsftpd/empty" >> /etc/vsftpd.conf
+sudo echo "pam_service_name=vsftpd" >> /etc/vsftpd.conf
+sudo echo "ls_recurse_enable=NO" >> /etc/vsftpd.conf
+sudo echo "utf8_filesystem=YES" >> /etc/vsftpd.conf
+sudo echo "one_process_model=YES" >> /etc/vsftpd.conf
+sudo echo "ssl_enable=NO" >> /etc/vsftpd.conf
+sudo echo "rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem" >> /etc/vsftpd.conf
+sudo echo "rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key" >> /etc/vsftpd.conf
 sudo systemctl enable vsftpd
 sudo systemctl start vsftpd
 
 # BASH PROFILES
-ln -sf /dev/null /root/.bash_history
+sudo  ln -sf /dev/null /root/.bash_history
 ln -sf /dev/null /home/kali/.bash_history
 
 sed -i 's/HISTSIZE=1000/HISTSIZE=10000/g' /home/kali/.bashrc
@@ -343,27 +343,26 @@ echo 'IMPACKET="/usr/share/doc/python3-impacket/examples"' >> /home/kali/.bashrc
 sudo cp /home/kali/.bashrc /root/
 sudo cp /home/kali/.profile /root/
 
-sudo mkdir /root/HTB
-sudo mkdir /root/HTB/Boxes
+sudo mkdir -p /root/HTB/Boxes
 sudo mkdir /root/HTB/Challenges
 sudo mkdir /root/HTB/Labs
 sudo mkdir /media/hgfs
 
 echo "Creating bash aliases"
 # Bash Aliases
-echo "alias ls='ls --color=auto'" > /root/.bash_aliases
-echo "alias dir='dir --color=auto'" >> /root/.bash_aliases
-echo "alias vdir='vdir --color=auto'">> /root/.bash_aliases
-echo "alias grep='grep --color=auto'" >> /root/.bash_aliases
-echo "alias fgrep='fgrep --color=auto'" >> /root/.bash_aliases
-echo "alias egrep='egrep --color=auto'" >> /root/.bash_aliases
-echo "alias ll='ls -la'" >> /root/.bash_aliases
-echo "alias la='ls -lashF'" >> /root/.bash_aliases
-echo "alias l='ls -CF'" >> /root/.bash_aliases
-echo "alias cd..='cd ..'" >> /root/.bash_aliases
-echo "alias cls='clear'" >> /root/.bash_aliases
-echo "alias pyhton='python'" >> /root/.bash_aliases
-echo "alias pyhton3='python3'" >> /root/.bash_aliases
+sudo echo "alias ls='ls --color=auto'" > /root/.bash_aliases
+sudo echo "alias dir='dir --color=auto'" >> /root/.bash_aliases
+sudo echo "alias vdir='vdir --color=auto'">> /root/.bash_aliases
+sudo echo "alias grep='grep --color=auto'" >> /root/.bash_aliases
+sudo echo "alias fgrep='fgrep --color=auto'" >> /root/.bash_aliases
+sudo echo "alias egrep='egrep --color=auto'" >> /root/.bash_aliases
+sudo echo "alias ll='ls -la'" >> /root/.bash_aliases
+sudo echo "alias la='ls -lashF'" >> /root/.bash_aliases
+sudo echo "alias l='ls -CF'" >> /root/.bash_aliases
+sudo echo "alias cd..='cd ..'" >> /root/.bash_aliases
+sudo echo "alias cls='clear'" >> /root/.bash_aliases
+sudo echo "alias pyhton='python'" >> /root/.bash_aliases
+sudo echo "alias pyhton3='python3'" >> /root/.bash_aliases
 
 echo "alias ls='ls --color=auto'" > /home/kali/.bash_aliases
 echo "alias dir='dir --color=auto'" >> /home/kali/.bash_aliases
@@ -384,11 +383,11 @@ sudo systemctl stop nfs-server.service
 sudo systemctl disable nfs-server.service
 
 cd /root
-git clone https://github.com/tobor88/Bash
+sudo git clone https://github.com/tobor88/Bash
 cd Bash
 sudo chmod u+x *.sh
 files=$(ls "*.sh")
-for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
+sudo for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
 sudo ssh-keygen -b 4096 -t rsa -f /root/.ssh
 su -c "ssh-keygen -b 4096 -t rsa -f /home/kali/.ssh" kali
 echo 'Running ghidra for the first time. Enter the following location for the JDK install: /usr/share/jdk-11.0.7+10'
@@ -400,8 +399,8 @@ sudo updatedb
 
 # Computer needs a restart after docker-compose is installed
 # DOCKER INSTALLS
-sudo apt install docker -y
-sudo apt install docker.io -y
+sudo apt-get install docker -y
+sudo apt-get install docker.io -y
 sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-sudo apt install docker-compose -y
+sudo apt-get install docker-compose -y
