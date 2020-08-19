@@ -122,8 +122,6 @@ sudo apt install hping3 -y
 sudo apt install gobuster -y
 sudo apt install rlwrap -y
 sudo apt install patator -y
-sudo apt install docker -y
-sudo apt install docker.io -y
 sudo apt install neo4j -y
 sudo apt install bloodhound -y
 sudo apt install wfuzz -y
@@ -135,6 +133,12 @@ sudo apt install powershell -y
 sudo apt install golang -y
 sudo go get github.com/ffuf/ffuf
 sudo cp /root/go/bin/ffuf /usr/local/bin/ffuf
+
+# DOCKER INSTALLS
+sudo apt install docker -y
+sudo apt install docker.io -y
+sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
 # NPM INSTALLS
 npm install -g sql-cli
