@@ -10,7 +10,7 @@ trap '
 
 USAGE="Syntax: dnslookup [-h] -i <network> [-s <int32 starting port>] [-e <int32 ending port>]
 
-OsbornePro dnslookup 2.1 ( https://roberthosborne.com )
+OsbornePro dnslookup 2.2 ( https://roberthosborne.com )
 
 USAGE: dnslookup -i [network <string format is #.#.#>] 
 
@@ -104,6 +104,8 @@ if [[ "$ipv4" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]] || ERROR="Valid IP subn
 		validate_start
 
 		validate_end
+		
+		hostname_regex = "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$"
 
 		# Begin DNS Lookups
 		printf "%s\n---------------------------------------------------"
@@ -111,6 +113,12 @@ if [[ "$ipv4" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]] || ERROR="Valid IP subn
 		printf "%s\n---------------------------------------------------%s\n"
 		
 		for i in $(seq $START $END); do 
-			host $ipv4.$i
-		done | grep -v "not found" | awk {'print $1, $5'} | sed 's/".in-addr.arpa "/" | "/'
+			unset HOSTSNAME 2> /dev/null
+			THEIP="$ipv4.$i"
+			HOSTSNAME=$(host "$THEIP" | awk '{print $5}')
+			if [[ $HOSTSNAME =~ "$hostname_regex" ]] && [ $HOSTSNAME != "3(NXDOMAIN)" ]; then
+				echo "$THEIP             | $HOSTSNAME"
+			fi
+		done 
+
 fi
