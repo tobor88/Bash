@@ -10,7 +10,7 @@ trap '
 
 USAGE="Syntax: dnslookup [-h] -i <network> [-s <int32 starting port>] [-e <int32 ending port>]
 
-OsbornePro dnslookup 2.0 ( https://roberthosborne.com )
+OsbornePro dnslookup 2.1 ( https://roberthosborne.com )
 
 USAGE: dnslookup -i [network <string format is #.#.#>] 
 
@@ -61,6 +61,38 @@ shift
 done
 
 
+function validate_start {
+
+	# Validate parameter $START is an integer between 1 and 254
+	if [ -z "$start" ]; then
+		START=1
+	elif [ "$start" -lt 255 ] && [ "$start" -ge 1 ] || ERROR="Start parameter needs to be an integer between 1 and 254"; then
+		if [ ! $ERROR ]; then
+			START=$start
+		else
+			printf "$ERROR\n"
+			exit 1
+		fi
+	fi		
+}  # End function validate_start
+
+
+function validate_end {
+
+	# Validate parameter $END is an integer between $START and 254
+	if [ -z "$end" ]; then
+		END=254
+	elif [ "$end" -lt 255 ] && [ "$end" -gt "$start" ] || ERROR="End parameter needs to be an integer between the value of positional parameter two and 254"; then
+		if [ ! $ERROR ]; then
+			END=$end
+		else
+			printf "$ERROR\n"
+			exit 1
+		fi
+	fi
+
+}  # End function validate_end
+
 if [[ "$ipv4" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]] || ERROR="Valid IP subnet was not defined. For more help execute 'dnslookup -h' Example Value: 172.16.32 "; then
 
 		# Validate first parameter was defined correctly
@@ -68,30 +100,10 @@ if [[ "$ipv4" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]] || ERROR="Valid IP subn
 			printf "$ERROR\n"
 			exit 1
 		fi
+	
+		validate_start
 
-		# Validate parameter $START is an integer between 1 and 254
-		if [ -z "$start" ]; then
-			START=1
-		elif [ "$start" -lt 255 ] && [ "$start" -ge 1 ] || ERROR="Start parameter needs to be an integer between 1 and 254"; then
-			if [ ! $ERROR ]; then
-				START=$start
-			else
-				printf "$ERROR\n"
-				exit 1
-			fi
-		fi
-			
-		# Validate parameter $END is an integer between $START and 254
-		if [ -z "$end" ]; then
-			END=254
-		elif [ "$end" -lt 255 ] && [ "$end" -gt "$start" ] || ERROR="End parameter needs to be an integer between the value of positional parameter two and 254"; then
-			if [ ! $ERROR ]; then
-				END=$end
-			else
-				printf "$ERROR\n"
-				exit 1
-			fi
-		fi
+		validate_end
 
 		# Begin DNS Lookups
 		printf "%s\n---------------------------------------------------"
