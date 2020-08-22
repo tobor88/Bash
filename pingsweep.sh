@@ -29,7 +29,7 @@ Usage: pingsweep -i <string format is #.#.#> [[-s <start address>] [-e <end addr
             # This example performs a ping sweep from 192.168.0.200 to 192.168.0.254
 
 	  pingsweep -i 192.168.0 -s 128 -e 192
-	    This example performs a ping sweep from 192.168.0.128 to 192.168.0.192
+	    # This example performs a ping sweep from 192.168.0.128 to 192.168.0.192
 	    
 	    "
 
