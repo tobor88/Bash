@@ -1,42 +1,78 @@
 #!/bin/bash
 
-# This command is used to enumerate the dns servers once connected to a local DNS server
-# Ensure /etc/resolv.conf has a local dns server set for the domain you are enumerating in
 
-# Allow Ctrl+C to kill pingsweep
+USAGE="Syntax: $0 [-h] -d <string domain name> [-s <string dns server name>]
 
-trap '
-  trap - INT # restore default INT handler
-  /usr/bin/kill -s INT "$$"
-' INT
+OsbornePro enum_dns_servers 2.0 ( https://roberthosborne.com )
+NOTE: You may need to have the domains local DNS servers configured as your DNS servers for this to work. 
+	You are also able to manually defined the DNS server to use for your lookup.
 
-if [ -z "$1" ]; then
-        /usr/bin/echo "Use -h switch to view help information"
-        /usr/bin/echo "Use --help switch to view help information"
+USAGE: enum_dns_servers -d <string domain name>
 
-else
-        if [ "$1" == '-h' ] || [ "$1" == '--help' ] ; then
-                /usr/bin/echo ""
-                /usr/bin/echo "OsbornePro enum_dns_servers 1.0 ( https://roberthosborne.com )"
-                /usr/bin/echo ""
-                /usr/bin/echo "USAGE: enum_dns_servers <string domain name>"
-                /usr/bin/echo ""
-                /usr/bin/echo "OPTIONS:"
-                /usr/bin/echo "  -h : Displays the help information for the command."
-                /usr/bin/echo " --help: Displays the help information for the command."
-                /usr/bin/echo ""
-                /usr/bin/echo "EXAMPLES:"
-                /usr/bin/echo "  enum_dns_servers osbornepro.com"
-		/usr/bin/echo "  This example returns the dns servers of a domain. Ensure your /etc/resolv.conf server is using the domains local servers."
-                /usr/bin/echo ""
-                exit
+    OPTIONS:
+        -h : Displays the help information for the command.
+	-d : Set the domain name to enumerate the DNS servers of 
+	-s : Set the DNS server to use to perform the lookups on
 
-	# Variable validation------------------------------------------------
-	elif [ -n "$1" ]; then
-		# Begin DNS Server Enumeration
-		echo "---------------"
-		echo "| DNS Servers |"
-		echo "---------------"
-		/usr/bin/host -t ns $1 | cut -d " " -f4
+    EXAMPLES:
+	   enum_dns_servers -d osbornepro.com 
+	   This example returns the dns servers of a domain. Ensure your /etc/resolv.conf server is using the domains local servers.
+
+"
+
+
+function print_usage {
+
+	printf "$USAGE\n" >&2
+	exit 1
+
+}  # End function print_usage
+
+
+function allow_ctrlc {
+
+	# Allow Ctrl+C to kill pingsweep
+	trap '
+	  trap - INT # restore default INT handler
+	  kill -s INT "$$"
+	' INT
+
+}  # End function allow_ctrlc
+
+
+function execute_enum_dns_servers {
+
+	# Begin DNS Server Enumeration
+	echo "-------------------------"
+	echo "|      DNS Servers      |"
+	echo "-------------------------"
+	
+	if test $# -gt 1; then
+		host -4 -t ns "$domain" "$server" | cut -d " " -f4
+	else
+		host -4 -t ns "$domain" | cut -d " " -f4
 	fi
-fi
+
+}  # End function enum_dns_servers
+
+
+while [ ! -z "$1" ]; do
+	case "$1" in
+		-d)
+			shift
+			domain=$1
+			;;
+		-s)
+			shift
+			server=$1
+			;;
+		*)
+			print_usage
+			;;
+	esac
+shift
+done
+
+
+allow_ctrlc
+execute_enum_dns_servers
