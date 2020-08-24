@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+IPV4REGEX="^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$"
 PINGCMD=$(command -v fping)
 USAGE="Syntax: $0 [-h] -i <network> [-s <int32 starting port>] [-e <int32 ending port>]
 
@@ -24,7 +25,7 @@ Usage: pingsweep -i <string format is #.#.#> [[-s <start address>] [-e <end addr
 
 	  pingsweep -i 192.168.0 -s 128 -e 192
 	    # This example performs a ping sweep from 192.168.0.128 to 192.168.0.192
-	    
+	   
 "
 
 
@@ -95,7 +96,7 @@ function validate_end {
 
 function validate_ipv4 {
 
-	if [[ "$ipv4" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]] || ERROR="Valid IP subnet was not defined. For more help execute 'pingsweep -h' Example 172.16.32 "; then
+	if [[ "$ipv4" =~ "$IPV4REGEX" ]] || ERROR="Valid IP subnet was not defined. For more help execute 'pingsweep -h' Example 172.16.32 "; then
 		if [ -n "$ERROR" ]; then
 			printf "[x] A valid network value was not defined. Used -h for more info. Example: 172.16.0\n"
 			exit 1
@@ -121,7 +122,6 @@ function execute_pingsweep {
 	printf "[*] Ping Sweep execution completed\n"
 
 }  # End function execute_pingsweep
-
 
 
 while [ ! -z "$1" ]; do
