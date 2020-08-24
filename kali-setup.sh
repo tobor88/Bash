@@ -225,6 +225,7 @@ sudo git clone https://github.com/cyberark/RiskySPN.git
 sudo git clone https://github.com/EliteLoser/Invoke-PsExec.git
 sudo git clone https://github.com/ZilentJack/Spray-Passwords.git
 sudo git clone https://github.com/fox-it/BloodHound.py.git
+sudo git clone https://github.com/SafeBreach-Labs/SirepRAT.git
 sudo git clone https://github.com/AonCyberLabs/Windows-Exploit-Suggester.git
 sudo git clone https://github.com/bitsadmin/wesng.git
 sudo git clone https://github.com/tobor88/ReversePowerShell.git
