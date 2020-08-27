@@ -65,6 +65,7 @@ chmod +x update-trinity.sh
 gem install winrm
 gem install winrm-s
 gem install winrm-fs
+gem install evil-winrm
 
 # APT INSTALLS
 sudo apt-get install tmux -y
@@ -208,7 +209,6 @@ sudo chmod a+x /usr/local/bin/enyx
 sudo git clone https://github.com/superkojiman/rfishell.git
 sudo git clone https://github.com/ccavxx/Kadimus.git
 sudo git clone https://github.com/pwntester/ysoserial.net.git
-sudo git clone https://github.com/Hackplayers/evil-winrm.git
 sudo ln -sf /usr/share/AutoRecon/autorecon.py /usr/local/bin/autorecon
 sudo wget http://pentestmonkey.net/tools/finger-user-enum/finger-user-enum-1.0.tar.gz
 sudo tar xzf finger-user-enum-1.0.tar.gz
