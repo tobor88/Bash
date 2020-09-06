@@ -28,6 +28,7 @@ pip install unicorn
 pip install ropper
 pip install colorama 
 pip install pysnmp
+pip install win_unicode_console
 pip install discovery
 pip install Crypto
 pip install impacket
