@@ -26,6 +26,9 @@ pip install keystone-engine
 pip install capstone
 pip install unicorn
 pip install ropper
+pip install colorama 
+pip install pysnmp
+pip install discovery
 pip install Crypto
 pip install impacket
 pip install iptools
@@ -74,6 +77,8 @@ sudo apt-get install git -y
 sudo apt-get install vim -y
 sudo apt-get install beef -y
 sudo apt-get install ncat -y
+sudo apt-get install imagemagick -y
+sudo apt-get install ghostscript -y
 sudo apt-get install stoken -y
 sudo apt-get install recon-ng -y
 sudp apt-get install maven -y
@@ -183,6 +188,8 @@ sudo ./setup.py install
 cd /usr/share 
 sudo git clone https://github.com/int0x33/nc.exe.git
 sudo git clone https://github.com/tennc/fuzzdb.git
+sudo git clone https://github.com/RUB-NDS/PRET.git
+sudo ln -sf /usr/share/PRET/pret.py /usr/local/bin/pret
 sudo git clone https://github.com/AlessandroZ/LaZagne.git
 pip3 install -r /usr/share/LaZagne/requirements.txt
 pip3 install -r /usr/share/LaZagne/requirements.txt
