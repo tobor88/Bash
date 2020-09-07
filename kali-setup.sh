@@ -42,6 +42,8 @@ pip install pwn
 pip install pwntools
 pip install pysmbclient
 pip install pytelnet
+pip install secret
+pip3 install secret
 pip3 install stegcracker 
 pip install ssh
 pip install webapp2
