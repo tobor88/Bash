@@ -216,4 +216,9 @@ elif [ "$1" == "xxe" ]; then
 elif [ "$1" == "xp_cmdshell" ]; then
 	printf "ENABLE XP_CMDSHELL: sp_configure 'show advanced options', '1'\nreconfigure\nsp_configure 'xp_cmdshell', '1' \nreconfigure\n"
 	printf "CREATE USER FOR XP_CMDHSELL: use <database>;\ngo;\ncreate user test for loging test;\ngo\ngrant exec on xp_cmdshell to test;\ngo\n"
+
+# Extract ab file contents Android Backup
+elif [ "$1" == "extract-ab" ]; then
+        printf "( printf \"\\x1f\\x8b\\x08\\x00\\x00\\x00\\x00\\x00\" ; tail -c +25 backup.ab ) |  tar xfvz \n"
 fi
+
