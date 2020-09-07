@@ -258,6 +258,9 @@ cd /usr/share/linux-resources
 sudo git clone https://github.com/mzet-/linux-exploit-suggester.git
 sudo git clone https://github.com/rebootuser/LinEnum.git
 sudo git clone https://github.com/DominicBreuker/pspy.git
+sudo git clone https://github.com/huntergregal/mimipenguin
+sudo cp /usr/share/linux-resources/mimipenguin.sh /var/www/html/mimipenguin.sh
+cp /usr/share/linux-resources/mimipenguin.py /var/www/html/mimipenguin.py
 sudo git clone https://github.com/jondonas/linux-exploit-suggester-2.git
 sudo git clone https://github.com/saghul/lxd-alpine-builder.git
 sudo /usr/share/linux-resources/lxd-alpine-builder/build-alpine
