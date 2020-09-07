@@ -89,6 +89,7 @@ sudo apt-get install brutespray -y
 sudo apt-get install ismtp -y
 sudo apt-get install checksec -y
 sudo apt-get install reaver -y
+sudo apt-get install seahorse -y
 sudo apt-get install guake -y
 sudo apt-get install wifite -y
 sudo apt-get install kismet -y
