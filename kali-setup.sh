@@ -96,6 +96,7 @@ sudo apt-get install wifite -y
 sudo apt-get install kismet -y
 sudo apt-get install crunch -y
 sudo apt-get install cewl -y
+sudo apt-get install awscli -y
 sudo apt-get install xclip -y
 sudo apt-get install crowbar -y
 sudo apt-get install jxplorer -y
