@@ -231,6 +231,9 @@ cd /usr/share/windows-resources
 sudo git clone https://github.com/besimorhino/powercat.git
 sudo git clone https://github.com/trustedsec/unicorn.git
 sudo git clone https://github.com/irsdl/IIS-ShortName-Scanner
+sudo git clone https://github.com/byt3bl33d3r/SprayingToolkit.git
+cd /usr/share/windows-resources/SprayingToolkit
+sudo pip3 install -r requirements.txt
 sudo git clone https://github.com/peewpw/Invoke-WCMDump.git
 sudo git clone https://github.com/rasta-mouse/Sherlock.git
 sudo git clone https://github.com/rasta-mouse/Watson.git
