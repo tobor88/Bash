@@ -111,6 +111,7 @@ sudo apt-get install httptunnel -y
 sudo apt-get install exiftool -y
 sudo apt-get install squid -y
 sudo apt-get install squidclient -y
+sudo apt-get install xlsx2csv -y
 sudo apt-get install squid-cgi -y
 sudo apt-get install squid-common -y
 sudo apt-get install encfs -y
