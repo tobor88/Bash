@@ -44,7 +44,8 @@ pip install pysmbclient
 pip install pytelnet
 pip install secret
 pip3 install secret
-pip3 install stegcracker 
+pip3 install stegcracker
+pip3 install csvkit
 pip install ssh
 pip install webapp2
 pip install lxml
