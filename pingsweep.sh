@@ -28,14 +28,13 @@ Usage: pingsweep -i <string format is #.#.#> [[-s <start address>] [-e <end addr
 	   
 "
 
-
 function get_cmd {
 
 	# Determines whether fping or ping will be used
 	if [ -z $PINGCMD ]; then
-		CMD="ping -s 16 -c 1 -i 1 -U -W 1 -4 \$HOST 2> /dev/null"
+		CMD="ping -s 16 -c 1 -i 1 -U -W 1 -4 \$HOST | grep 'bytes from' &" && echo "[*] fping command found and will be used"
 	else
-		CMD="fping -c1 -t300 \$HOST 2> /dev/null 1> /dev/null"
+		CMD="fping -c1 -t300 \$HOST 2> /dev/null 1> /dev/null" && echo "[*] fping command found and will be used"
 	fi
 	
 }  # End function get_cmd
@@ -96,9 +95,10 @@ function validate_end {
 
 function validate_ipv4 {
 
-	if [[ "$ipv4" =~ "$IPV4REGEX" ]] || ERROR="Valid IP subnet was not defined. For more help execute 'pingsweep -h' Example 172.16.32 "; then
-		if [ -n "$ERROR" ]; then
-			printf "[x] A valid network value was not defined. Used -h for more info. Example: 172.16.0\n"
+	echo "[*] Verifying $ipv4 value"
+	if [[ "$ipv4" =~ "$IPV4REGEX" ]] || IPERROR="Valid IP subnet was not defined. For more help execute 'pingsweep -h' Example 172.16.32 "; then
+		if [ ! "$IPERROR" ]; then
+			printf "[x] A valid network value was not defined, you entered $ipv4. Used -h for more info. Example: 172.16.0\n"
 			exit 1
 		fi
 	fi
