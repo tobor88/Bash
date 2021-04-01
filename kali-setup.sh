@@ -107,6 +107,7 @@ sudo apt-get install armitage -y
 sudo apt-get install wfuzz -y
 sudo apt-get install nfs-kernel-server -y
 sudo apt-get install sqlmap -y
+sudo apt-get install bettercap -y
 sudo apt-get install putty-tools -y
 sudo apt-get install httptunnel -y
 sudo apt-get install exiftool -y
