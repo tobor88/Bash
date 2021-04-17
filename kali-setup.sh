@@ -55,6 +55,7 @@ pip install virtualenv
 pip install cme
 pip install bloodhound
 pip3 install virtualenv
+pip3 install scanless
 pip3 install minidump minikerberos aiowinreg msldap winsspi
 pip3 install pypykatz
 python3 -m pip install web3
