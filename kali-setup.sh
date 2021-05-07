@@ -21,39 +21,39 @@ sudo apt-get install python3-pip -y
 sudo apt-get install python-pip -y
 sudo apt-get install seclists -y
 python -m easy_install pip
-pyhton2 -m pip install wheel
-pyhton2 -m pip install keystone-engine
-pyhton2 -m pip install capstone
-pyhton2 -m pip install unicorn
-pyhton2 -m pip install ropper
-pyhton2 -m pip install colorama 
-pyhton2 -m pip install pysnmp
-pyhton2 -m pip install win_unicode_console
-pyhton2 -m pip install discovery
-pyhton2 -m pip install Crypto
-pyhton2 -m pip install impacket
-pyhton2 -m pip install iptools
-pyhton2 -m pip install agents
-pyhton2 -m pip install M2Crypto
-pyhton2 -m pip install netifaces
-pyhton2 -m pip install pydispatch
-pyhton2 -m pip install samba
-pyhton2 -m pip install pwn
-pyhton2 -m pip install pwntools
-pyhton2 -m pip install pysmbclient
-pyhton2 -m pip install pytelnet
-pyhton2 -m pip install secret
+pip install wheel
+pip install keystone-engine
+pip install capstone
+pip install unicorn
+pip install ropper
+pip install colorama 
+pip install pysnmp
+pip install win_unicode_console
+pip install discovery
+pip install Crypto
+pip install impacket
+pip install iptools
+pip install agents
+pip install M2Crypto
+pip install netifaces
+pip install pydispatch
+pip install samba
+pip install pwn
+pip install pwntools
+pip install pysmbclient
+pip install pytelnet
+pip install secret
 pip3 install secret
 pip3 install stegcracker
 pip3 install csvkit
-pyhton2 -m pip install ssh
-pyhton2 -m pip install webapp2
-pyhton2 -m pip install lxml
-pyhton2 -m pip install ssl
-pyhton2 -m pip install pycrypto
-pyhton2 -m pip install virtualenv
-pyhton2 -m pip install cme
-pyhton2 -m pip install bloodhound
+pip install ssh
+pip install webapp2
+pip install lxml
+pip install ssl
+pip install pycrypto
+pip install virtualenv
+pip install cme
+pip install bloodhound
 pip3 install virtualenv
 pip3 install scanless
 pip3 install minidump minikerberos aiowinreg msldap winsspi
@@ -199,7 +199,8 @@ sudo ./setup.py install
 cd /usr/share
 sudo git clone https://github.com/opsdisk/pagodo.git
 cd pagodo
-sudo python2 -m pip install -r requirements.txt
+sudo pip install -r requirements.txt
+cd /usr/share
 sudo git clone https://github.com/int0x33/nc.exe.git
 sudo git clone https://github.com/tennc/fuzzdb.git
 sudo git clone https://github.com/RUB-NDS/PRET.git
