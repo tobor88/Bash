@@ -19,7 +19,7 @@ GROUPFILES=$(/usr/bin/find / -group www-data 2>/dev/null)
 
 /bin/echo "[*] Changing group ownership permissions of apache directories"
 for g in $GROUPFILES; do
-    /bin/chgrp apache:apache $g
+    /bin/chgrp apache $g
 done
 
 /bin/echo "[*] Changing user ownership permissions of apache directories"
