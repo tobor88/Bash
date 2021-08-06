@@ -29,3 +29,6 @@ done
 
 /bin/echo "[*] Replacing the www-data user in /etc/apache2/envvars with the newly created 'apache' user id"
 /bin/sed -i 's/www-data/apache/g' /etc/apache2/envvars
+
+/bin/echo "[*] Restarting the apache2 service"
+/bin/systemctl restart apache2
