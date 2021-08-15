@@ -69,11 +69,13 @@ wget https://raw.githubusercontent.com/hugsy/stuff/master/update-trinity.sh
 chmod +x update-trinity.sh
 ./update-trinity.sh
 
-# GEM INSTALLS 
+# GEM INSTALLS
+gem update --system
 gem install winrm
 gem install winrm-s
 gem install winrm-fs
 gem install evil-winrm
+gem install bettercap
 
 # APT INSTALLS
 sudo apt-get install tmux -y
@@ -138,6 +140,8 @@ sudo apt-get install nbtscan -y
 sudo apt-get install firewalk -y
 sudo apt-get install hping3 -y
 sudo apt-get install gobuster -y
+sudo apt-get install ruby-full
+sudo apt-get install libpcap-dev
 sudo apt-get install rlwrap -y
 sudo apt-get install patator -y
 sudo apt-get install neo4j -y
@@ -200,6 +204,16 @@ cd /usr/share
 sudo git clone https://github.com/opsdisk/pagodo.git
 cd pagodo
 sudo pip install -r requirements.txt
+cd /usr/share
+sudo git clone https://github.com/moxie0/sslstrip
+cd sslstrip/
+sudo python2 setup.py install
+cd /tmp
+sudo wget http://launchpadlibrarian.net/70808584/python-twisted-web_11.0.0-1_all.deb
+sudo dpkg -i python-twisted-web_11.0.0-1_all.deb
+sudo apt install -f
+pip install service_identity
+sudo dpkg -i python-twisted-web_11.0.0-1_all.deb
 cd /usr/share
 sudo git clone https://github.com/int0x33/nc.exe.git
 sudo git clone https://github.com/tennc/fuzzdb.git
