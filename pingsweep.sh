@@ -32,7 +32,7 @@ function get_cmd {
 
 	# Determines whether fping or ping will be used
 	if [ -z $PINGCMD ]; then
-		CMD="ping -s 16 -c 1 -i 1 -U -W 1 -4 \$HOST | grep 'bytes from' &" && echo "[*] fping command found and will be used"
+		CMD="ping -s 16 -c 1 -i 1 -U -W 1 \$HOST | grep 'bytes from' &" && echo "[*] fping command NOT found and will NOT be used"
 	else
 		CMD="fping -c1 -t300 \$HOST 2> /dev/null 1> /dev/null" && echo "[*] fping command found and will be used"
 	fi
@@ -150,4 +150,4 @@ allow_ctrlc
 validate_ipv4
 validate_start
 validate_end
-execute_pingsweep
+execute_pingsweep | grep bytes | cut -d" " -f4 | cut -d":" -f1
