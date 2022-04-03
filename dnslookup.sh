@@ -5,7 +5,7 @@
 IPV4_REGEX="^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ "
 USAGE="Syntax: dnslookup [-h] -i <network> [-s <int32 starting port>] [-e <int32 ending port>]
 
-OsbornePro dnslookup 2.3 ( https://roberthosborne.com )
+OsbornePro dnslookup 2.3 ( https://osbornepro.com )
 
 USAGE: dnslookup -i [network <string format is #.#.#>] 
 
