@@ -3,7 +3,7 @@
 
 USAGE="Syntax: $0 [-h] -d <string domain name> [-s <string dns server name>]
 
-OsbornePro enum_dns_servers 2.0 ( https://roberthosborne.com )
+OsbornePro enum_dns_servers 2.0 ( https://osbornepro.com )
 NOTE: You may need to have the domains local DNS servers configured as your DNS servers for this to work. 
 	You are also able to manually defined the DNS server to use for your lookup.
 
