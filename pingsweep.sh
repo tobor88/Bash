@@ -5,7 +5,7 @@ IPV4REGEX="^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$"
 PINGCMD=$(command -v fping)
 USAGE="Syntax: $0 [-h] -i <network> [-s <int32 starting port>] [-e <int32 ending port>]
 
-OsbornePro pingsweep 2.1 ( https://roberthosborne.com )
+OsbornePro pingsweep 2.1 ( https://osbornepro.com )
 NOTE: This command is most efficient on Linux distros that have fping installed
 
 Usage: pingsweep -i <string format is #.#.#> [[-s <start address>] [-e <end address>]]
