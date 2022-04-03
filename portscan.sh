@@ -9,7 +9,7 @@ trap '
 # Create positional parameter options
 if [ "$1" == "" -o "$1" == "-h" -o "$1" == "--help" ]; then
 	echo ""
-	echo "OsbornePro portscan 1.0 ( https://roberthosborne.com )"
+	echo "OsbornePro portscan 1.0 ( https://osbornepro.com )"
 	echo ""
 	echo "Usage: portscan [network]"
 	echo ""
