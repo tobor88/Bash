@@ -40,7 +40,7 @@ while [ -n "$1" ]; do
 		-h) param="$4"
 			# This option displays a help message and command execution examples
 			echo ""
-			echo "OsbornePro readid 1.0 ( https://roberthosborne.com )"
+			echo "OsbornePro readid 1.0 ( https://osbornepro.com )"
 			echo ""
 			echo "Usage: readid '[Options'] "
 			echo ""
