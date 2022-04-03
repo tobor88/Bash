@@ -17,7 +17,7 @@ trap '
 if [ -z "$1" ] || [ "$1" == '-h' ] || [ "$1" == '--help' ] ; then
                 # This option displays a help message and command execution examples
                 echo ""
-                echo "OsbornePro rfi-rce 1.0 ( https://roberthosborne.com )"
+                echo "OsbornePro rfi-rce 1.0 ( https://osbornepro.com )"
                 echo ""
                 echo "USAGE: rfi-rce -f <attacker file> -u <url> -c <curl options>"
                 echo ""
