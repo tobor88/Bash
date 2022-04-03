@@ -15,7 +15,7 @@ trap '
 if [ -z "$1" ] || [ "$1" == '-h' ] || [ "$1" == '--help' ] ; then
                 # This option displays a help message and command execution examples
                 echo ""
-                echo "OsbornePro corehttp-rev-shell 1.0 ( https://roberthosborne.com )"
+                echo "OsbornePro corehttp-rev-shell 1.0 ( https://osbornepro.com )"
                 echo ""
                 echo "USAGE:  -p <port> -u <url> -c <curl options>"
                 echo ""
