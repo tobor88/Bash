@@ -2,7 +2,7 @@
 
 
 REGEX="^[a-z ]"
-USAGE='OsbornePro absolutepathit 2.0 ( https://roberthosborne.com )
+USAGE='OsbornePro absolutepathit 2.0 ( https://osbornepro.com )
 
 Usage: absolutepathit [file <string /path/to/script]
 
