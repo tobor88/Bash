@@ -1,7 +1,7 @@
 # I do my best to keep this updated with tools I use so rebuilding a Kali ISO doesn't take all day
 # Script runtime is about 20 minutes. If you have ideas to make this even faster feel free to contribute 
 # Kali cant run this as a script. Copy and paste everything all at once.
-# Last Tested on Kali 2020.2 on May 14 2020
+# Last Tested on Kali 2022.1 on April 1 2022
 
 echo "Setup Burpsuite CA Certificate and set 'Enable Interception at Startup' to 'Always Disable'"
 
@@ -13,47 +13,47 @@ sudo systemctl enable postgresql
 # PIP INSTALLS 
 sudo apt-get install cmake -y
 sudo apt-get install gdb -y
-sudo dpkg --add-architecture i386 && apt-get install wine32 -y
+sudo apt-get install libwine -y
 sudo apt-get install python-setuptools -y
 sudo apt-get install python3-setuptools -y
-sudo apt-get install python-dev -y
+sudo apt-get install python2-dev python2 python-dev-is-python3 -y
 sudo apt-get install python3-pip -y
 sudo apt-get install python-pip -y
 sudo apt-get install seclists -y
-python -m easy_install pip
-pip install wheel
-pip install keystone-engine
-pip install capstone
-pip install unicorn
-pip install ropper
-pip install colorama 
-pip install pysnmp
-pip install win_unicode_console
-pip install discovery
-pip install Crypto
-pip install impacket
-pip install iptools
-pip install agents
-pip install M2Crypto
-pip install netifaces
-pip install pydispatch
-pip install samba
-pip install pwn
-pip install pwntools
-pip install pysmbclient
-pip install pytelnet
-pip install secret
+python2 -m easy_install pip
+pip2 install wheel
+pip2 install keystone-engine
+pip2 install capstone
+pip2 install unicorn
+pip2 install ropper
+pip2 install colorama 
+pip2 install pysnmp
+pip2 install win_unicode_console
+pip2 install discovery
+pip2 install Crypto
+pip2 install impacket
+pip2 install iptools
+pip2 install agents
+pip2 install M2Crypto
+pip2 install netifaces
+pip2 install pydispatch
+pip2 install samba
+pip2 install pwn
+pip2 install pwntools
+pip2 install pysmbclient
+pip2 install pytelnet
+pip2 install secret
 pip3 install secret
 pip3 install stegcracker
 pip3 install csvkit
-pip install ssh
-pip install webapp2
-pip install lxml
-pip install ssl
-pip install pycrypto
-pip install virtualenv
-pip install cme
-pip install bloodhound
+pip2 install ssh
+pip2 install webapp2
+pip2 install lxml
+pip2 install ssl
+pip2 install pycrypto
+pip2 install virtualenv
+pip2 install cme
+pip2 install bloodhound
 pip3 install virtualenv
 pip3 install scanless
 pip3 install minidump minikerberos aiowinreg msldap winsspi
@@ -78,17 +78,11 @@ gem install evil-winrm
 gem install bettercap
 
 # APT INSTALLS
-sudo apt-get install tmux -y
-sudo apt-get install hashcat -y
-sudo apt-get install git -y
-sudo apt-get install vim -y
 sudo apt-get install beef -y
 sudo apt-get install ncat -y
 sudo apt-get install imagemagick -y
-sudo apt-get install ghostscript -y
 sudo apt-get install stoken -y
-sudo apt-get install recon-ng -y
-sudp apt-get install maven -y
+sudo apt-get install maven -y
 sudo apt-get install brutespray -y
 sudo apt-get install ismtp -y
 sudo apt-get install checksec -y
@@ -97,19 +91,14 @@ sudo apt-get install seahorse -y
 sudo apt-get install catdoc -y
 sudo apt-get install seahorse-nautilus -y
 sudo apt-get install guake -y
-sudo apt-get install wifite -y
-sudo apt-get install kismet -y
-sudo apt-get install crunch -y
-sudo apt-get install cewl -y
+sudo mkdir /usr/share/guake/data
+sudo cp /usr/share/guake/autostart-guake.desktop /usr/share/guake/data/autostart-guake.desktop
 sudo apt-get install awscli -y
 sudo apt-get install xclip -y
 sudo apt-get install crowbar -y
 sudo apt-get install jxplorer -y
-sudo apt-get install smbmap -y
 sudo apt-get install armitage -y
-sudo apt-get install wfuzz -y
 sudo apt-get install nfs-kernel-server -y
-sudo apt-get install sqlmap -y
 sudo apt-get install bettercap -y
 sudo apt-get install putty-tools -y
 sudo apt-get install httptunnel -y
@@ -125,36 +114,24 @@ sudo apt-get install qemu-utils -y
 sudo apt-get install libcurl4-openssl-dev
 sudo apt-get install steghide -y
 sudo apt-get install evil-ssdp
-sudo apt-get install dnschef -y
 sudo apt-get install mingw-w64 -y
 sudo apt-get install smtp-user-enum -y 
-sudo apt-get install samdump2 -y
 sudo apt-get install lftp -y
 sudo apt-get install python3-pip -y
-sudo apt-get install responder -y
 sudo apt-get install unicornscan -y
-sudo apt-get install crackmapexec -y
 sudo apt-get install shellter -y
-sudo apt-get install wpscan -y
-sudo apt-get install nbtscan -y
 sudo apt-get install firewalk -y
-sudo apt-get install hping3 -y
 sudo apt-get install gobuster -y
 sudo apt-get install ruby-full
 sudo apt-get install libpcap-dev
 sudo apt-get install rlwrap -y
-sudo apt-get install patator -y
 sudo apt-get install neo4j -y
 sudo apt-get install bloodhound -y
-sudo apt-get install wfuzz -y
 sudo apt-get install ident-user-enum -y
 sudo apt-get install cargo -y
 sudo apt-get install npm -y
 sudo apt-get install npm --fix-broken -y
 sudo apt-get install powershell -y
-sudo apt-get install golang -y
-sudo go get github.com/ffuf/ffuf
-sudo cp /root/go/bin/ffuf /usr/local/bin/ffuf
 
 # NPM INSTALLS
 npm install -g sql-cli
@@ -166,8 +143,8 @@ sudo git clone https://github.com/EmpireProject/Empire.git
 sudo /opt/Empire/setup/install.sh
 
 # GHIDRA
-sudo wget https://ghidra-sre.org/ghidra_9.1.2_PUBLIC_20200212.zip 
-sudo unzip /opt/ghidra_9.1.2_PUBLIC_20200212.zip
+sudo wget https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.1.2_build/ghidra_10.1.2_PUBLIC_20220125.zip
+sudo unzip /opt/ghidra_10.1.2_PUBLIC_20220125.zip
 sudo wget https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
 sudo tar xzvf OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz -C /usr/share/
 
@@ -314,11 +291,6 @@ sudo git clone https://github.com/tobor88/PayloadSiteForPenTesters.git
 sudo cp /var/www/PayloadSiteForPenTesters/* /var/www/html/
 sudo cp /usr/share/windows-resources/Lovely-Potato/* /var/www/html/
 
-# WORDLISTS
-echo "Building all inclusive wordlist for URL fuzzing"
-sudo cp /usr/share/dirbuster/wordlists/directory-list-2.3-medium.txt /usr/share/seclists/Discovery/Web-Content/
-sudo cat /usr/share/seclists/Discovery/Web-Content/*.txt | cut -d' ' -f2 |  sort -u  > /usr/share/seclists/Discoery/Web-Content/all-inclusive.txt
-
 # DEBUGGERS
 sudo wget -q -O- https://github.com/hugsy/gef/raw/master/scripts/gef.sh | sh
 
@@ -432,8 +404,8 @@ cd Bash
 sudo chmod u+x *.sh
 files=$(ls "*.sh")
 sudo for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
-sudo ssh-keygen -b 4096 -t rsa -f /root/.ssh
-su -c "ssh-keygen -b 4096 -t rsa -f /home/kali/.ssh" kali
+sudo ssh-keygen -t ed25519 -f /root/.ssh
+su -c "ssh-keygen -t ed25519 -f /home/kali/.ssh" kali
 echo 'Running ghidra for the first time. Enter the following location for the JDK install: /usr/share/jdk-11.0.7+10'
 bash /opt/ghidra_*_PUBLIC/ghidraRun
 source ~/.bashrc
