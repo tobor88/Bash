@@ -2,11 +2,11 @@
 # This script is used to auto-update Gitea when new versions come out
 
 NEW_VERSION=$(curl -s https://github.com/go-gitea/gitea/releases/latest | grep -Po '(?<=v)\d.\d\d.\d')
-CURRENT_VERSION=$(gitea -v | grep -Po '\d.\d\d.\d')
 LOCATION=$(which gitea)
+CURRENT_VERSION=$(gitea -v | grep -Po '\d.\d\d.\d')
 
 
-if [ $CURRENT_VERSION != $NEW_VERSION ]; then
+if [ "$CURRENT_VERSION" != "$NEW_VERSION" ]; then
         wget "https://dl.gitea.io/gitea/$NEW_VERSION/gitea-$NEW_VERSION-linux-arm-6" -O /tmp/gitea
         if [ -f /tmp/gitea }; then
                 printf "[*] Successfully downloaded Gitea v$NEW_VERSION \n"
