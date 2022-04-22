@@ -193,7 +193,7 @@ pip install service_identity
 sudo dpkg -i python-twisted-web_11.0.0-1_all.deb
 cd /usr/share
 sudo git clone https://github.com/int0x33/nc.exe.git
-sudo git clone https://github.com/tennc/fuzzdb.git
+sudo git clone https://github.com/fuzzdb-project/fuzzdb.git
 sudo git clone https://github.com/RUB-NDS/PRET.git
 sudo ln -sf /usr/share/PRET/pret.py /usr/local/bin/pret
 sudo git clone https://github.com/AlessandroZ/LaZagne.git
