@@ -111,7 +111,7 @@ sudo apt-get install squid-common -y
 sudo apt-get install encfs -y
 sudo apt-get install gdbserver -y
 sudo apt-get install qemu-utils -y
-sudo apt-get install libcurl4-openssl-dev
+sudo apt-get install libcurl4-openssl-dev -y
 sudo apt-get install steghide -y
 sudo apt-get install evil-ssdp
 sudo apt-get install mingw-w64 -y
@@ -122,8 +122,8 @@ sudo apt-get install unicornscan -y
 sudo apt-get install shellter -y
 sudo apt-get install firewalk -y
 sudo apt-get install gobuster -y
-sudo apt-get install ruby-full
-sudo apt-get install libpcap-dev
+sudo apt-get install ruby-full -y
+sudo apt-get install libpcap-dev -y
 sudo apt-get install rlwrap -y
 sudo apt-get install neo4j -y
 sudo apt-get install bloodhound -y
