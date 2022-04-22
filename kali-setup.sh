@@ -1,7 +1,17 @@
 # I do my best to keep this updated with tools I use so rebuilding a Kali ISO doesn't take all day
 # Script runtime is about 20 minutes. If you have ideas to make this even faster feel free to contribute 
 # Kali cant run this as a script. Copy and paste everything all at once.
-# Last Tested on Kali 2022.1 on April 1 2022
+#
+# LAST TESTED: Kali 2022.1 on April 22, 2022
+#
+#uname -a
+#Linux kali 5.15.0-kali3-amd64 #1 SMP Debian 5.15.15-2kali1 (2022-01-31) x86_64 GNU/Linux
+#
+#lsb_release -a      
+#Distributor ID: Kali
+#Description:    Kali GNU/Linux Rolling
+#Release:        2022.1
+#Codename:       kali-rolling
 
 echo "Setup Burpsuite CA Certificate and set 'Enable Interception at Startup' to 'Always Disable'"
 
@@ -10,7 +20,7 @@ gzip -d /usr/share/wordlists/rockyou.txt.gz
 sudo msfdb init
 sudo systemctl enable postgresql
 
-# PIP INSTALLS 
+# PRE-REQUISITE AND PIP INSTALLS 
 sudo apt-get install cmake -y
 sudo apt-get install gdb -y
 sudo apt-get install libwine -y
@@ -398,16 +408,20 @@ sudo chown kali:kali /home/kali/.bash_aliases
 sudo systemctl stop nfs-server.service
 sudo systemctl disable nfs-server.service
 
+sudo bash
 cd /root
 sudo git clone https://github.com/tobor88/Bash
 cd Bash
 sudo chmod u+x *.sh
-files=$(ls "*.sh")
-sudo for f in $files; do cp "$f" /usr/local/bin/"${f%.sh}"; done
+sudo bash
+FILES=$(ls *.sh)
+for f in $FILES; do cp "$f" /usr/local/bin/"${f%.sh}"; done
+exit
 sudo ssh-keygen -t ed25519 -f /root/.ssh
 su -c "ssh-keygen -t ed25519 -f /home/kali/.ssh" kali
-echo 'Running ghidra for the first time. Enter the following location for the JDK install: /usr/share/jdk-11.0.7+10'
-bash /opt/ghidra_*_PUBLIC/ghidraRun
+mkdir -p /root/.ghidra/.ghidra_10.1.2_PUBLIC/
+echo '/usr/share/jdk-11.0.7+10' > /root/.ghidra/.ghidra_10.1.2_PUBLIC/java_home.save
+chmod -R 640 /root/.ghidra/.ghidra_10.1.2_PUBLIC/java_home.save
 source ~/.bashrc
 source ~/.profile
 
