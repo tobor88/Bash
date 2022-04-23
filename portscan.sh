@@ -1,58 +1,85 @@
 #!/bin/bash
 
-# Allow Ctrl+C to kill pingsweep
-trap '
-  trap - INT # restore default INT handler
-  kill -s INT "$$"
-' INT
+IPV4REGEX="^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$"
+USAGE="Syntax: $0 [-h] -n <network> -p <int32 ports>
+OsbornePro portscan 1.1 ( https://osbornepro.com )
 
-# Create positional parameter options
-if [ "$1" == "" -o "$1" == "-h" -o "$1" == "--help" ]; then
-	echo ""
-	echo "OsbornePro portscan 1.0 ( https://osbornepro.com )"
-	echo ""
-	echo "Usage: portscan [network]"
-	echo ""
-	echo "EXAMPLES: "
-	echo "  #The below example will scan ports 1 through 65535 on host 192.168.227.2"
-	echo "  portscan 192.168.227.2"	
-	echo ""
-	echo "  #The below example will test for port 80 on host 192.168.227.2"
-	echo "  portscan 192.168.227.2 80"
-	echo ""
-	echo "  #The below example will test the port range 20 to 25 on 192.168.227.2"
-	echo "  portscan 192.168.227.2 20 25"
-	echo ""
-	exit	
+Usage: portscan -n <string format is #.#.#> -p [int array]
 
-# If a valid ipv4 address is not defined than exit 
-elif [[ "$1" =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]] && echo "Scanning $1" || printf "$1 is not a valid ipv4 address\n\n"; then
+    OPTIONS:
+        -h : Displays the help information for the command
+	-n : Set the hostname or ip address to test for open ports on
+	-p : Set the ports to check
+	-t : Set the timeout value for testing connections
+
+    EXAMPLES:
+          portscan -n 192.168.0.1 -p 22 -t 1
+	  # This examples tests for port 22 being open on 192.168.0.1 using a 1 second timeout
+"
+
+
+function allow_ctrlc {
+
+	# Allow Ctrl+C to kill pingsweep
+	trap '
+	  trap - INT # restore default INT handler
+	  kill -s INT "$$"
+	' INT
+
+}  # End function allow_ctrlc
+
+
+
+function print_usage {
+
+	printf "$USAGE\n" >&2
+	exit 1
+
+}  # End function print_usage	
+
+
 	
-	# If second positional parameter is not defined than default check all ports
-	if [ -z "$2" ] && printf "No ports have been defined. All ports 1-65535 will be tested...\n\n"; then
-		echo "$1"
-		echo ""
-	        echo "Open Ports"
-		echo "----------"
-        	for port in {1..65535}
-        	do
-			# (echo > /dev/tcp/$1/$port) 2> /dev/null && echo "$port is open"
-			true &>/dev/null </dev/tcp/$1/$port && echo $port
-		done
-		exit
-
-	# Single Port scan. If the third parameter is not defined and the port is in the valid range test the one port
-	elif [ -z "$3" ] && [ "$2" -le 65534 ] && [ "$2" -ge 1 ] && echo "Now scanning port $2 on $1"; then
-		true &>/dev/null </dev/tcp/$1/$2 && echo "Port $2 is open"
-		exit
+function validate_port {
 	
-	# Validate the third positiona parameter is a valid port number between $2 and 65535
-	elif [ "$3" -le 65535 ] && [ "$3" -gt "$2" ]; then
-		echo "Scanning ports $2 through $3..."
-		for p in $(seq $2 $3 2> /dev/null); do 
-			true &>/dev/null </dev/tcp/$1/$p && echo "$p is open" || echo "$p is closed"
-		done
-	else
-		echo "Input was invalid. Execute 'portscan -h' for information on how to use this command."
+	if ((65535 <= $port)); then
+		printf "[x] Port needs to be between 1 and 65535\n"
+		exit 1
 	fi
-fi
+
+}  # End function validate_port
+
+
+function test_port {
+
+	(timeout $timeout bash -c "cat < /dev/null > /dev/tcp/$ipv4/$port") && printf "[*] Port $port is open on $ipv4\n" 
+
+}  # End function test_port
+
+
+
+while [ ! -z "$1" ]; do
+	case "$1" in
+		-n)
+		        shift
+			ipv4=$1
+			;;
+		-p)
+			shift
+			port=$1
+			;;
+		-t)	
+			shift
+			timeout=$1
+			;;
+		*)
+			print_usage
+			;;
+	esac
+shift
+done
+
+
+
+allow_ctrlc
+validate_port
+test_port
