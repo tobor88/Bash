@@ -143,10 +143,6 @@ sudo apt-get install npm -y
 sudo apt-get install npm --fix-broken -y
 sudo apt-get install powershell -y
 
-# NPM INSTALLS
-npm install -g sql-cli
-npm install -g memcached-cli
-
 # EMPIRE
 cd /opt
 sudo git clone https://github.com/EmpireProject/Empire.git
