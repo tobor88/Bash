@@ -193,10 +193,10 @@ cd sslstrip/
 sudo python2 setup.py install
 cd /tmp
 sudo wget http://launchpadlibrarian.net/70808584/python-twisted-web_11.0.0-1_all.deb
-sudo dpkg -i python-twisted-web_11.0.0-1_all.deb
+sudo dpkg -i python-twisted-web_11.0.0-1_all.deb -y
 sudo apt install -f
 pip install service_identity
-sudo dpkg -i python-twisted-web_11.0.0-1_all.deb
+sudo dpkg -i python-twisted-web_11.0.0-1_all.deb -y
 cd /usr/share
 sudo git clone https://github.com/int0x33/nc.exe.git
 sudo git clone https://github.com/fuzzdb-project/fuzzdb.git
