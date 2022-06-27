@@ -8,7 +8,7 @@ CURRENT_VERSION=$(gitea -v | grep -Po '\d.\d\d.\d')
 
 if [ "$CURRENT_VERSION" != "$NEW_VERSION" ]; then
         wget "https://dl.gitea.io/gitea/$NEW_VERSION/gitea-$NEW_VERSION-linux-arm-6" -O /tmp/gitea
-        if [ -f /tmp/gitea }; then
+        if [ -f /tmp/gitea ]; then
                 printf "[*] Successfully downloaded Gitea v$NEW_VERSION \n"
                 chmod a+x /tmp/gitea
                 mv $LOCATION $LOCATION.$CURRENT_VERSION.old
