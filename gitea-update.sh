@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script is used to auto-update Gitea when new versions come out
 
-NEW_VERSION=$(curl -s https://github.com/go-gitea/gitea/releases/latest | grep -Po '(?<=v)\d.\d\d.\d' | cut -d" " -f1 | head -n 1)
+NEW_VERSION=$(curl -sL https://github.com/go-gitea/gitea/releases/latest | grep -Po '(?<=v)\d.\d\d.\d' | cut -d" " -f1 | head -n 1)
 LOCATION=$(which gitea)
 CURRENT_VERSION=$(gitea -v | grep -Po '\d.\d\d.\d')
 
