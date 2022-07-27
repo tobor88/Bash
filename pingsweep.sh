@@ -150,4 +150,9 @@ allow_ctrlc
 validate_ipv4
 validate_start
 validate_end
-execute_pingsweep | grep bytes | cut -d" " -f4 | cut -d":" -f1
+if [ -z $PINGCMD ]; then
+	execute_pingsweep | grep bytes | cut -d" " -f4 | cut -d":" -f1
+else
+	execute_pingsweep
+fi
+
