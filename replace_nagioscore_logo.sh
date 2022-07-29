@@ -117,7 +117,7 @@ function update_logo {
 function file_cleanup {
 	
 	if [ -f $DLFILE ]; then
-		rm -rf $DLFILE
+		rm -rf -- $DLFILE
 	fi
 
 }  # End function file_cleanup
