@@ -36,8 +36,7 @@ USAGE: $0 [-u <url>] [-f <file path>]
 "
 
 # VARIABLES
-NAGIOSLOGOFILE="/usr/local/nagios/share/images/sblogo.png"
-NAGIOSMAINLOGOFILE="/usr/local/nagios/share/images/logofullsize.png"
+NAGIOSLOGOFILES=("/usr/local/nagios/html/images/sblogo.png" "/usr/local/nagios/share/images/sblogo.png" "/var/www/html/images/sblogo.png" "/usr/local/nagios/html/images/logofullsize.png" "/usr/local/nagios/share/images/logofullsize.png" "/var/www/html/images/logofullsize.png")
 DLFILE="/tmp/company-logo.png"
 
 # FUNCTIONS
@@ -84,12 +83,13 @@ function verify_file_type {
 
 function backup_nagios_logo {
 
-        if [ -f $NAGIOSLOGOFILE ]; then
-                printf "[*] Backing up current $NAGIOSLOGOFILE and $NAGIOSMAINLOGOFILE \n"
-                cp "${NAGIOSLOGOFILE}" "${NAGIOSLOGOFILE}.bak"
-                cp "${NAGIOSMAINLOGOFILE}" "${NAGIOSMAINLOGOFILE}.bak"
+        if [ -f "$NAGIOSLOGOFILES" ]; then
+                printf "[*] Backing up original Nagios Core logo files \n"
+                for F in "${NAGIOSLOGOFILES[@]}"; do
+                        cp "${F}" "${F}.bak"
+                done
         else
-                printf "[x] Expected sblogo.png Nagios Logo file was not found at $NAGIOSLOGOFILE and $NAGIOSMAINLOGOFILE \n"
+                printf "[x] Expected sblogo.png Nagios Logo file was not found at  \n"
                 exit 1
         fi
 
@@ -99,18 +99,28 @@ function update_logo {
 
         if [ -f $DLFILE ]; then
                 printf "[*] Updating the Nagios Core web GUI logo with your image \n"
-                cp "${DLFILE}" "${NAGIOSLOGOFILE}"
-                mv "${DLFILE}" "${NAGIOSMAINLOGOFILE}"
+                for F in "${NAGIOSLOGOFILES[@]}"; do
+                        cp "${DLFILE}" "${F}"
+                done
+
         elif [ -f $LOGOFILE ]; then
                 printf "[*] Updating the Nagios Core web GUI logo with your image \n"
-                cp "${LOGOFILE}" "${NAGIOSLOGOFILE}"
-                mv "${LOGOFILE}" "${NAGIOSMAINLOGOFILE}"
+                for F in "${NAGIOSLOGOFILES[@]}"; do
+                        cp "${LOGOFILE}" "${F}"
+                done
         else
                 printf "[x] Unable to find the replacement logo file \n"
         fi
 
 }  # End function update_logo
 
+function file_cleanup {
+	
+	if [ -f $DLFILE ]; then
+		rm -rf $DLFILE
+	fi
+
+}  # End function file_cleanup
 
 
 # EXECUTION
@@ -137,4 +147,5 @@ done
 allow_ctrlc
 backup_nagios_logo
 update_logo
+file_cleanup
 printf "[i] You will need to restart the hosting web service (apache,nginx,etc.) to display your new logo \n"
