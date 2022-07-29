@@ -212,7 +212,7 @@ function discover_snmp_hosts {
 
 function remove_files {
 	# Removes files that were created to run commands
-	rm -rf "$TMPPATH/ip.lst" "$TMPPATH/snmp_hosts.txt"
+	rm -rf -- "$TMPPATH/ip.lst" "$TMPPATH/snmp_hosts.txt"
 }
 
 
