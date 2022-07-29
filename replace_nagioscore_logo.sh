@@ -37,6 +37,7 @@ USAGE: $0 [-u <url>] [-f <file path>]
 
 # VARIABLES
 NAGIOSLOGOFILE="/usr/local/nagios/share/images/sblogo.png"
+NAGIOSMAINLOGOFILE="/usr/local/nagios/share/images/logofullsize.png"
 DLFILE="/tmp/company-logo.png"
 
 # FUNCTIONS
@@ -84,10 +85,11 @@ function verify_file_type {
 function backup_nagios_logo {
 
         if [ -f $NAGIOSLOGOFILE ]; then
-                printf "[*] Backing up current $NAGIOSLOGOFILE \n"
+                printf "[*] Backing up current $NAGIOSLOGOFILE and $NAGIOSMAINLOGOFILE \n"
                 cp "${NAGIOSLOGOFILE}" "${NAGIOSLOGOFILE}.bak"
+                cp "${NAGIOSMAINLOGOFILE}" "${NAGIOSMAINLOGOFILE}.bak"
         else
-                printf "[x] Expected sblogo.png Nagios Logo file was not found at $NAGIOSLOGOFILE \n"
+                printf "[x] Expected sblogo.png Nagios Logo file was not found at $NAGIOSLOGOFILE and $NAGIOSMAINLOGOFILE \n"
                 exit 1
         fi
 
@@ -97,10 +99,12 @@ function update_logo {
 
         if [ -f $DLFILE ]; then
                 printf "[*] Updating the Nagios Core web GUI logo with your image \n"
-                mv "${DLFILE}" "${NAGIOSLOGOFILE}"
+                cp "${DLFILE}" "${NAGIOSLOGOFILE}"
+                mv "${DLFILE}" "${NAGIOSMAINLOGOFILE}"
         elif [ -f $LOGOFILE ]; then
                 printf "[*] Updating the Nagios Core web GUI logo with your image \n"
-                mv "${LOGOFILE}" "${NAGIOSLOGOFILE}"
+                cp "${LOGOFILE}" "${NAGIOSLOGOFILE}"
+                mv "${LOGOFILE}" "${NAGIOSMAINLOGOFILE}"
         else
                 printf "[x] Unable to find the replacement logo file \n"
         fi
