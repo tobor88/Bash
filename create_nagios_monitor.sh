@@ -22,14 +22,14 @@ REQUIREMENTS:
 CONTACT INFORMATION
    Company: OsbornePro LLC.
    Website: https://osbornepro.com 
-   Author: Robert H, Osborne
+   Author: Robert H. Osborne
    Contact: rosborne@osbornepro.com
 
 
 USAGE: $0 -H <hostname> [-i <ipv4 address>] [-f <template file path>]
 
     OPTIONS:
-  -h : Displays the help information for the command.
+  	-h : Displays the help information for the command.
 	-H : Define the hostname to monitor
 	-i : Set the IPv4 address of the server to monitor
 	-t : Define the location of the template file
