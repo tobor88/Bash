@@ -33,13 +33,14 @@ USAGE: $0 -H <hostname> [-i <ipv4 address>] [-f <template file path>]
 	-H : Define the hostname to monitor
 	-i : Set the IPv4 address of the server to monitor
 	-t : Define the location of the template file
+	-r : Restarts the Nagios service
 
     EXAMPLES:
-        $0 -H dc01.domain.com
-        # This example create a Nagios Core monitoring file for dc01.domain.com in /usr/local/nagios/etc/objects/windows_servers/dc01.domain.com.cfg
+        $0 -H dc01.domain.com -r
+        # This example create a Nagios Core monitoring file for dc01.domain.com in /usr/local/nagios/etc/objects/windows_servers/dc01.domain.com.cfg and restarts the Nagios service
 
-        $0 -H dhcp.domain.com -i 10.20.11.67
-        # This example create a Nagios Core monitoring file for dhcp.domain.com in /usr/local/nagios/etc/objects/windows_servers/dhcp.domain.com.cfg
+        $0 -H dhcp.domain.com -i 10.20.11.67 -r
+        # This example create a Nagios Core monitoring file for dhcp.domain.com in /usr/local/nagios/etc/objects/windows_servers/dhcp.domain.com.cfg and restarts the Nagios service
 	 
         $0 -H files.domain.com -i 10.20.44.5 -t /usr/local/nagios/etc/objects/windows_servers/windows_template.cfg.orig
 	  # This example create a Nagios Core monitoring file for files.domain.com in /usr/local/nagios/etc/objects/windows_servers/files.domain.com.cfg
@@ -130,8 +131,25 @@ function verify_changes {
 function create_cfg {
 
 	sed "s|localhost|$LOWERCASE|g; s|winserver|$LOWERCASE|g; s|hplj2605dn|$LOWERCASE|g; s|HP LaserJet 2605dn|$DNSNAME|g; s|My Windows Server|$DNSNAME|g; s|192.168.1.2|$IPV4|g"  "$TEMPLATEFILE" > "$DESTINATION"
-	printf "[*] You will need to restart the nagios service to apply your changes. \n[i]\tsystemctl restart nagios.service\n"
 
+}
+
+function restart_nagios_service {
+
+	TEST=$(/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg)
+	RESULT=$(echo $TEST | grep "Things look okay - No serious problems were detected during the pre-flight check")
+	
+	if [ -z "$RESULT" ]; then
+		printf "[x] There is an issue with your current Nagios configuration \n"
+		/usr/local/nagios/bin/nagios -v /usr/local/nagios/etc/nagios.cfg
+	else
+		if [ "$RESTARTSERVICE" == "True" ]; then
+			systemctl restart nagios.service && systemctl status nagios.service
+		else
+			printf "[*] You will need to restart the nagios service to apply your changes. \n[i]\tsystemctl restart nagios.service\n"
+		fi
+	fi
+		
 }
 
 
@@ -150,6 +168,10 @@ while [ ! -z "$1" ]; do
 			shift
 			TEMPLATEFILE=$1
 			;;
+		-r)
+                        shift
+                        RESTARTSERVICE="True"
+                        ;;
 		*)
 			print_usage
 			;;
@@ -164,3 +186,4 @@ get_hostname
 get_ipaddress
 verify_changes
 create_cfg
+restart_nagios_service
