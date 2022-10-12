@@ -20,8 +20,13 @@ SERVICE='apache2.service'
 
 TEMPLATE='WebServer' # This is the name of your template. This will not have any spaces in the name
 CA='root-ca.domain.com'
-USER='WindowsAdmin'
-PASS='Pass0rd123!'
+#USER='WindowsAdmin'
+#PASS='Pass0rd123!'
+# OR UNCOMMENT THE BELOW TWO LINES TO STATICALLY SET YOUR VALUES
+read -p "Enter your username: " USER
+read -s -p "Enter your password: " PASS
+echo " "
+# COMMENT OUT THE ABOVE 3 LINES TO STOP THE PROMPT AND USE YOUR STATIC VALUES
 
 COUNTRY='US'
 STATE='New Jersey'
@@ -30,10 +35,14 @@ ORGANIZATION'OsbornePro LLC.'
 CN='hostname.domain.com'
 KEYSIZE='2048'
 
-KEYFILE="/etc/pki/tls/private/${CN}.key"
-CSRFILE="/etc/pki/tls/${CN}.csr"
-CERTFILE="/etc/pki/tls/certs/${CN}.crt"
-
+read -p "Set location to save your certificate key EXAMPLE: /etc/pki/tls/private/key.key: " KEYFILE #KEYFILE="/etc/pki/tls/private/${CN}.key"
+read -p "Set location to save your request file EXAMPLE /etc/pki/tls/request.req: " CSRFILE #CSRFILE="/etc/pki/tls/${CN}.csr"
+read -p "Set location to save the certificate file EXAMPLE /etc/pki/tls/certs/cert.crt: " CERTFILE #CERTFILE="/etc/pki/tls/certs/${CN}.crt"
+# COMMENT OUT THE ABOVE 3 LINES AND STATICALLY SET YOUR VALUES BELOW
+#KEYFILE="/etc/pki/tls/private/${CN}.key"
+#CSRFILE="/etc/pki/tls/${CN}.csr"
+#CERTFILE="/etc/pki/tls/certs/${CN}.crt"
+# UNCOMMENT THE ABOVE 3 LINES TO STOP THE PROMPT AND USE YOUR STATIC VALUES
 
 
 # BACKUP OLD CERTIFICATE FILES
