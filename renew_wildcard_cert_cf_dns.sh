@@ -1,5 +1,6 @@
 #!/bin/bash
 # This script is used to request a wildcard certificate from LetsEncrypt when Cloudflare is your DNS hosting provider
+# This script also sets up a renewal cronjob for the wildcard certificate
 
 
 if [ "$EUID" -ne 0 ]; then
