@@ -8,15 +8,15 @@
 ZONE=domain.com
 DNSRECORD=subdomain.domain.com
 CLOUDFLARE_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-IPV4REGEX="^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$"
+IPV4REGEX="[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$"
 IP=$(/usr/bin/curl -s -X GET https://cloudflare.com/cdn-cgi/trace | grep ip | cut -d"=" -f2)
-DNSCHECK=$(/usr/bin/host $DNSRECORD 1.1.1.1 | /bin/grep "has address" | /bin/grep "$IP")
+DNS_IP_TRANSLATION=$(/usr/bin/host $DNSRECORD 1.1.1.1 | /bin/grep "has address" | /bin/grep "$IP" | egrep -o $IPV4REGEX)
 
 /bin/echo "[*] Current IPv4 Address: $IP"
-if [[ $DNSCHECK =~ $IPVREGEX ]]; then
+if [ $IP == $DNS_IP_TRANSLATION ]; then
 
 	/bin/echo "[*] $DNSRECORD is currently set to $IP, no changes needed"
-  
+
 else
 
 	ZONEID=$(/usr/bin/curl -s -X GET "https://api.cloudflare.com/client/v4/zones?name=$ZONE&status=active" -H "Authorization: Bearer ${CLOUDFLARE_KEY}" -H "Content-Type: application/json" | /usr/bin/jq -r '{"result"}[] | .[0] | .id')
