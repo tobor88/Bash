@@ -27,6 +27,6 @@ else
 
 	/bin/echo "[*] DNS Record    : $DNSRECORD"
   /bin/echo "[*] DNS Record ID : $DNSRECORDID"
-	/usr/bin/curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONEID/dns_records/$DNSRECORDID" -H "Authorization: Bearer ${CLOUDFLARE_KEY}" -H "Content-Type: application/json" --data "{\"type\":\"A\",\"name\":\"$DNSRECORD\",\"content\":\"$IP\",\"ttl\":1,\"proxied\":false}" | /usr/bin/jq
+	/usr/bin/curl -s -X PUT "https://api.cloudflare.com/client/v4/zones/$ZONEID/dns_records/$DNSRECORDID" -H "Authorization: Bearer ${CLOUDFLARE_KEY}" -H "Content-Type: application/json" --data "{\"type\":\"A\",\"name\":\"$DNSRECORD\",\"content\":\"$IP\",\"ttl\":1,\"proxied\":false}" | /usr/bin/jq -r '.result'
 
 fi
