@@ -12,13 +12,23 @@
 #Description:    Kali GNU/Linux Rolling
 #Release:        2022.1
 #Codename:       kali-rolling
-
+#
+# BELOW IS HOW I MAPPED A SHARED FOLDER TO MY KALI VM IN VMWARE WORKSTATION PRO 17.5 VM
+# sudo mkdir -p /mnt/hgfs/KaliShare
+# sudo vim /etc/fstab
+# # ADD LINE
+#.host:/KaliShare /mnt/hgfs/KaliShare fuse.vmhgfs-fuse defaults,allow_other,auto_unmount 0 0
+#
+# SAVE CHANGES AND DO
+# sudo systemctl daemon-reload
+# sudo mount -a
+# 
 echo "Setup Burpsuite CA Certificate and set 'Enable Interception at Startup' to 'Always Disable'"
 
 # SERVICES
-gzip -d /usr/share/wordlists/rockyou.txt.gz
+sudo gzip -d /usr/share/wordlists/rockyou.txt.gz
 sudo msfdb init
-sudo systemctl enable postgresql
+sudo systemctl enable postgresql --now
 
 # PRE-REQUISITE AND PIP INSTALLS 
 sudo apt-get install cmake -y
@@ -142,17 +152,15 @@ sudo apt-get install cargo -y
 sudo apt-get install npm -y
 sudo apt-get install npm --fix-broken -y
 sudo apt-get install powershell -y
-
-# EMPIRE
-cd /opt
-sudo git clone https://github.com/EmpireProject/Empire.git
-sudo /opt/Empire/setup/install.sh
-
-# GHIDRA
-sudo wget https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.1.2_build/ghidra_10.1.2_PUBLIC_20220125.zip
-sudo unzip /opt/ghidra_10.1.2_PUBLIC_20220125.zip
-sudo wget https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
-sudo tar xzvf OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz -C /usr/share/
+sudo apt-get install ghidra -y
+sudo apt-get install sslstrip -y
+sudo apt-get install powercat -y
+sudo apt-get install autorecon -y
+sudo apt-get install unicorn -y
+sudo apt-get install empire -y
+sudo apt-get install pspy -y
+sudo apt-get install sshuttle -y
+sudo apt-get install chisel -y
 
 # TMUX 
 cd /opt
@@ -178,7 +186,6 @@ sudo mkdir /usr/share/proxies
 cd /usr/share/proxies
 sudo git clone https://github.com/sensepost/reGeorg.git
 sudo git clone https://github.com/jpillora/chisel.git
-sudo git clone https://github.com/sshuttle/sshuttle.git
 cd sshuttle
 sudo ./setup.py install
 
@@ -188,9 +195,6 @@ sudo git clone https://github.com/opsdisk/pagodo.git
 cd pagodo
 sudo pip install -r requirements.txt
 cd /usr/share
-sudo git clone https://github.com/moxie0/sslstrip
-cd sslstrip/
-sudo python2 setup.py install
 cd /tmp
 sudo wget http://launchpadlibrarian.net/70808584/python-twisted-web_11.0.0-1_all.deb
 sudo dpkg -i python-twisted-web_11.0.0-1_all.deb -y
@@ -218,7 +222,6 @@ cargo build --examples
 QUICHE_BSSL_PATH="/usr/share/boringssl" cargo build --examples
 cd /usr/share/
 sudo git clone https://github.com/frohoff/ysoserial.git
-sudo git clone https://github.com/Tib3rius/AutoRecon.git
 sudo git clone https://github.com/skelsec/pypykatz.git
 sudo python /usr/share/pypykatz/setup.py install
 sudo git clone https://github.com/arthaud/git-dumper.git
@@ -228,14 +231,11 @@ sudo chmod a+x /usr/local/bin/enyx
 sudo git clone https://github.com/superkojiman/rfishell.git
 sudo git clone https://github.com/ccavxx/Kadimus.git
 sudo git clone https://github.com/pwntester/ysoserial.net.git
-sudo ln -sf /usr/share/AutoRecon/autorecon.py /usr/local/bin/autorecon
 sudo wget http://pentestmonkey.net/tools/finger-user-enum/finger-user-enum-1.0.tar.gz
 sudo tar xzf finger-user-enum-1.0.tar.gz
 
 # WINDOWS RESOURCES
 cd /usr/share/windows-resources
-sudo git clone https://github.com/besimorhino/powercat.git
-sudo git clone https://github.com/trustedsec/unicorn.git
 sudo git clone https://github.com/irsdl/IIS-ShortName-Scanner
 sudo git clone https://github.com/byt3bl33d3r/SprayingToolkit.git
 cd /usr/share/windows-resources/SprayingToolkit
@@ -368,7 +368,6 @@ sudo cp /home/kali/.profile /root/
 sudo mkdir -p /root/HTB/Boxes
 sudo mkdir /root/HTB/Challenges
 sudo mkdir /root/HTB/Labs
-sudo mkdir /media/hgfs
 
 echo "Creating bash aliases"
 # Bash Aliases
@@ -415,9 +414,6 @@ for f in $FILES; do cp "$f" /usr/local/bin/"${f%.sh}"; done
 exit
 sudo ssh-keygen -t ed25519 -f /root/.ssh
 su -c "ssh-keygen -t ed25519 -f /home/kali/.ssh" kali
-mkdir -p /root/.ghidra/.ghidra_10.1.2_PUBLIC/
-echo '/usr/share/jdk-11.0.7+10' > /root/.ghidra/.ghidra_10.1.2_PUBLIC/java_home.save
-chmod -R 640 /root/.ghidra/.ghidra_10.1.2_PUBLIC/java_home.save
 source ~/.bashrc
 source ~/.profile
 
